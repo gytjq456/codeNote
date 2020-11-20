@@ -16,6 +16,20 @@ function scrollHandler(){
       },1000)
     }
   }
+
+  
+  if(windowBottom == $(document).height()){
+    $(".to-top-btn").fadeIn(1000);
+    $(".to-top-btn").on("click",function(){
+      $("html, body").animate({
+        scrollTop: 0 
+      })
+    })    
+  }else{
+    $(".to-top-btn").fadeOut(1000);
+  }
+  
+
 }
 
 
