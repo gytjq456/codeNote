@@ -1,0 +1,43 @@
+function scrollHandler(){
+  var windowScroll = $(window).scrollTop() + 1;
+  var pos = $(".about").position().top;
+  if(windowScroll >= pos){
+    $(".menu-right button").css("color","#4a4a4a");
+  }else{
+    $(".menu-right button").css("color","#fff");
+  }  
+}
+
+function vertiAni(sec){
+  $("."+sec+" .vertical-center").animate({
+    opacity : 1,
+    top : 0
+  })
+}
+var sec = "header";
+
+$(window).on("scroll", scrollHandler);
+scrollHandler();
+vertiAni(sec);
+
+
+$(".menu-right button").on("click", function(){
+  var id = $(this).attr("id");
+  var pos;
+  if(id == "about-btn"){
+    sec = "about";
+    pos = $("."+sec).position().top;
+  }else if(id == "contact-btn"){
+    sec = "contact";
+    pos = $("."+sec).position().top;    
+  }
+  
+  
+  $("html,body").animate({
+    scrollTop : pos
+  }, vertiAni.bind(null, sec));
+  
+})
+  
+  
+  
