@@ -1,0 +1,7 @@
+    $(".skill").each(function(){
+      var percentage = $(this).find(".percentage").text();
+      console.log(percentage)
+      $(this).find(".inner-bar").animate({
+        width : percentage
+      })
+    })
