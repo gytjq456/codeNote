@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/test.css">
+</head>
+<body>
+  <div id="box1">box1
+    <p>test</p>
+    <div id="box2">
+      box2asd
+      <p>box122213121asdasdasasddad3</p>
+    </div>
+  </div>
+
+  <nav>
+    <ul>
+      <li><a href="#;">menu1</a></li>
+      <li><a href="#;">menu2</a></li>
+      <li><a href="#;">menu3</a></li>
+      <li><a href="#;">menu4</a></li>
+    </ul>
+  </nav>
+
+  <p class="mixin">mixin</p>
+
+  <div class="container">
+
+    <iframe id="a" src="https://youtube.com/embed/nM0xDI5R50E" width="500px" height="300px">
+    </iframe>
+
+  </div> 
+  
+  <script>
+    //document.querySelector("#a").contentWindow.document.body.innerHTML += "<style>* {font-color:blue}  </style>";
+    const a = document.querySelector("#a").contentWindow;
+    console.log(a)
+  </script>
+
+</body>
+</html>
