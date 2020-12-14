@@ -13,48 +13,7 @@
   top:0;
 }
 
-#logo { @include positionVal(); left:0; top:38px;}
-#mMenu { 
-  @include positionVal(); right:0; 
-  button {
-    height:110px;
-    width:110px;
-    background:url("/img/common/menuBar.png") no-repeat center $color-orange;
-  } 
-}
 
-header {
-  position:fixed;
-  left:0;
-  top:0;
-  width:100%;
-  z-index:9999;
-
-  > section {
-    @include inner(1700px);
-  }
-  nav a { 
-    color:$color-white; 
-    font-family: $font-nanumSquare; 
-    font-size:$font-sizeM;
-    font-weight:$font-bold;
-  }
-  
-  #gnb {
-    display:flex;
-    justify-content: center;
-    justify-content: space-around;
-    @include inner(50%);
-    > li > a {
-      display:flex;
-      justify-content: center;
-      flex-direction: column;
-      height: 110px;
-    }
-    
-  }
-
-}
 
 
 
