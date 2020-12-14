@@ -1,0 +1,67 @@
+#logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  top: 38px;
+}
+
+#mMenu {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#mMenu button {
+  height: 110px;
+  width: 110px;
+  background: url("/img/common/menuBar.png") no-repeat center #ff8b00;
+}
+
+header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+header > section {
+  max-width: 1700px;
+  margin: 0 auto;
+  position: relative;
+}
+
+header nav a {
+  color: #fff;
+  font-family: "NanumSquare", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+header #gnb {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  max-width: 50%;
+  margin: 0 auto;
+  position: relative;
+}
+
+header #gnb > li > a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 110px;
+}

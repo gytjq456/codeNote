@@ -1,0 +1,41 @@
+// common
+@import "inc";
+
+#main {
+  position:relative;
+  .visuTxt {
+    position:absolute; 
+    left:0; 
+    top:50%; 
+    transform: translateY(-50%);
+    width:100%;
+    text-align:center;
+    color:$color-white;
+    p {
+      margin-top:42px;
+      font-size:1.5rem;
+      line-height:1.4em;
+    }
+  }
+  h2 { 
+    font-size:$font-sizeB;
+    font-family: $font-GyeonggiTitleM;
+    span { 
+      color:$color-orange;
+      em { position:relative;}
+      em:before {
+        content:""; 
+        display:block;
+        width:14px; 
+        height:14px; 
+        border-radius:$radiusHarf;
+        position:absolute; 
+        left:50%; 
+        transform: translateX(-50%);
+        top:-36px;
+        background:$color-white;
+      }
+    }
+
+  }
+}
