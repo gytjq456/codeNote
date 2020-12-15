@@ -1,14 +1,14 @@
 ### README.md
 /*
-<% for i=1 to 3 step 1%>
+-<% for i=1 to 3 step 1%>
 
-<% next %>
+-<% next %>
 */
 
 /*
 
-<? for($i=1; $i<=3; $i++) {?>
+-<? for($i=1; $i<=3; $i++) {?>
 
-<? } ?>
+-<? } ?>
 
 */
