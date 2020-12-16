@@ -46,3 +46,4 @@ $('#mainVisual .visu').on('afterChange', function(event, slick, currentSlide, ne
     $("#notice .next").click(function(){
         $("#notice .list ul").slick('slickNext');
     });
+    $('.slider-nav').slick('slickGoTo', slideno - 1);
