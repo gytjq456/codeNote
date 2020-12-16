@@ -32,3 +32,17 @@
 					  ]					
 				});   			
     		}
+
+
+$('#mainVisual .visu').on('afterChange', function(event, slick, currentSlide, nextSlide){
+        var current = currentSlide+1
+        $(this).find(".main-visual-item").removeClass("active-item");
+        $(this).find(".main-visual-item").eq(currentSlide).addClass("active-item");
+    });
+    
+        $("#notice .prev").click(function(){
+        $("#notice .list ul").slick('slickPrev');
+    });
+    $("#notice .next").click(function(){
+        $("#notice .list ul").slick('slickNext');
+    });
