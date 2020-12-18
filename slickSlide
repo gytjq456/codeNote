@@ -47,3 +47,21 @@ $('#mainVisual .visu').on('afterChange', function(event, slick, currentSlide, ne
         $("#notice .list ul").slick('slickNext');
     });
     $('.slider-nav').slick('slickGoTo', slideno - 1);
+    
+    
+    
+    // 메인 비주얼 zoom-out 효과
+$(visu).on('init', function (event, slick) {
+  $(".item").eq(0).addClass("active-item");
+  $(visuParent).find(".txtBox").addClass("on");
+});
+
+$(visu).on('afterChange', function(event, slick, currentSlide){ 
+  $(".item").removeClass("active-item"); 
+  $(this).find(".item").eq(currentSlide).addClass("active-item") 
+});
+    
+.active-item {
+.bg {
+transform: scale(1);	
+}
