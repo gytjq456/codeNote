@@ -1,4 +1,8 @@
-  var scrPos = $(window).scrollTop();
+
+var scrPos = $(window).scrollTop();
+var elm = mainContents.children("section");
+var animating = false;
+var clickFlag = false;
   if(scrPos <= 100){
     slideMenu.find("li:eq(0)").addClass("on");
   }
