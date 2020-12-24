@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="test.scss">
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <!-- <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> -->
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+  <!-- <script type="text/javascript" src="http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.7.1/slick/slick.min.js"></script> -->
+  
+  <style>
+.slide h1 {
+    margin: 10px;
+    background-color: blue;
+    text-align: center;
+
+    font-size: 22px;
+    color: white;
+    height: 100px;
+    transform: scale(0.7, 0.7);
+    transition: all 1s;
+}
+
+.slide {
+}
+
+/* .slide.slick-active,
+.slide.slick-center {
+    transform: scale(1.0, 1.0);
+    transition: all 1s;
+} */
+
+.slide.slick-center h1{
+    background:#333;
+    transform: scale(1.0, 1.0);
+    transition: all 1s;    
+}
+
+  </style>
+</head> 
+
+<body>
+  <div>
+    <div class="slicktest">
+      <div class="slide"><h1>1</h1></div>
+      <div class="slide"><h1>2</h1></div>
+      <div class="slide"><h1>3</h1></div>
+      <div class="slide"><h1>4</h1></div>
+      <div class="slide"><h1>5</h1></div>
+    </div>
+  </div>
+
+  <script>
+    $(function() { 
+      $('.slicktest').slick({
+        centerMode: true,
+        infinite: true,
+        centerPadding: "60px",
+        slidesToShow: 3,
+        speed: 500
+      });    
+    });
+  </script>
+
+</body>
+
+
+
+</html>
