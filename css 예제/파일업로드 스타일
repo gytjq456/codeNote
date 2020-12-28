@@ -1,3 +1,12 @@
+<div class="filebox bs3-primary">
+	<input class="upload-name" value="파일선택" disabled="disabled">
+	<label for="ex_filename">업로드</label> 
+	<input type="file" id="ex_filename" class="upload-hidden"> 
+</div>
+
+<a href="http://webdir.tistory.com/435" target="_blank" class="where">posted in webdir</a> 
+
+
 body {margin: 10px}
 .where {
   display: block;
