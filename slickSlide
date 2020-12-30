@@ -65,3 +65,8 @@ $(visu).on('afterChange', function(event, slick, currentSlide){
 .bg {
 transform: scale(1);	
 }
+
+
+/tab none block 사용시
+$('#promotion .slideBox').slick('setPosition');
+
