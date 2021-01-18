@@ -70,3 +70,5 @@ transform: scale(1);
 /tab none block 사용시
 $('#promotion .slideBox').slick('setPosition');
 
+$(slideWrap.children()[index]).slick('resize');
+
