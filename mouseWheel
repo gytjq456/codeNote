@@ -1,4 +1,5 @@
 var current_idx = 0;
+var mainContents = $("#mainContents");
 var scrPos = $(window).scrollTop();
 var elm = mainContents.children("section");
 var animating = false;
