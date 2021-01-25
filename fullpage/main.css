@@ -1,0 +1,30 @@
+#mainContents {}
+#mainContents > section {
+  position:relative; 
+  font-size:50px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  color:#fff;
+}
+
+footer {
+  background: #000;
+  color:#fff;
+  height:350px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#mainContents > section:nth-child(1) {
+  background: #333;
+}
+#mainContents > section:nth-child(2) {
+  background: red;
+}
+#mainContents > section:nth-child(3) {
+  background: green;
+}
+
+
