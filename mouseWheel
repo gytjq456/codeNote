@@ -1,3 +1,5 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+
 var current_idx = 0;
 var mainContents = $("#mainContents");
 var scrPos = $(window).scrollTop();
