@@ -1,0 +1,40 @@
+#mainContents {}
+#mainContents > section {
+  position:relative; 
+  font-size:50px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  color:#fff;
+  height:960px;
+}
+
+
+#mainContents > section:nth-child(1) {
+  background: #333;
+}
+#mainContents > section:nth-child(2) {
+  background: red;
+}
+#mainContents > section:nth-child(3) {
+  background: green;
+}
+
+
+.scrollWrap {
+  position:fixed;
+  left:100%;
+  top:50%;
+  z-index:100;
+  transform: translate3d(0px, 0px, 0px);
+  transition: all 0.1s;
+}
+
+.scrollWrap p {
+  font-size: 200px;
+  -webkit-text-stroke: 1.5px #222;
+  color: transparent;
+  white-space: nowrap;
+  line-height:1;
+}
+
