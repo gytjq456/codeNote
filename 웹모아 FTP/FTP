@@ -30,9 +30,15 @@ pw : vision12#$
 FTPport : 5402
 
 ---- PHP (58.230.162.194) ----
-3) 이노와이어리스(아큐버)
+1) 이노와이어리스(아큐버)
 accuver.webmoa21.co.kr 
 ID : accuver
+pw : vision12#$
+FTPport : 5213
+
+2) 비엘티
+http://blt.webmoa21.co.kr/kr/index.php
+ID : blt
 pw : vision12#$
 FTPport : 5213
 
