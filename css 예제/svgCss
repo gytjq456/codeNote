@@ -1,0 +1,15 @@
+#mainContents {
+  padding:100px 0;
+  .svgBox {
+    svg {
+      stroke-dasharray: 2000;
+      stroke-dashoffset: 2000;  
+      transition: all 5s;  
+    }
+    &.on {
+      svg {
+          stroke-dashoffset: 0;
+      }
+    }
+  }
+}
