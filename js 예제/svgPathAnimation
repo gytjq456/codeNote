@@ -1,0 +1,16 @@
+    var pathes = $('#XignifyLogo').find('path');
+    pathes.each(function( i, path ) {
+        // 1번 부분
+        var total_length = path.getTotalLength();
+
+        // 2번 부분
+        path.style.strokeDasharray = total_length + " " + total_length;
+
+        // 3번 부분
+        path.style.strokeDashoffset = total_length;
+
+        // 4번 부분
+        $(path).animate({
+            "strokeDashoffset" : 0
+        }, 1500);
+    });
