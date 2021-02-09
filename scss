@@ -21,3 +21,14 @@
 
 SASS(SCSS) 시작하기 - VS CODE설치 및 셋팅
 https://mahyuna.tistory.com/4
+
+---------------------------------------------------------------------------------------------------------------
+
+sass for
+@for $i from 1 through 3 {
+  &:nth-child(#{$i}){
+    .bg {
+      background: url("/img/sub/history_img0#{$i}.jpg");
+    }
+  }
+} 
