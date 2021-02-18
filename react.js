@@ -8,3 +8,6 @@ author : 이름
 
 3. 몽구스 설치
 명령어 : npm install mongoose --save
+
+4. body-parser
+명령어 : npm install body-parser --save
