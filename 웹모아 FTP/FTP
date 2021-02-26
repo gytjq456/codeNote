@@ -1,45 +1,311 @@
-2) 시안
-sian.webmoa21.co.kr
-ID : sian
-pw : vision12#$
-FTPport : 4812
-
----- ASP (58.230.162.200) ----
-1) 씨에이치엠
-chm.webmoa21.co.kr 
-ID : chm
-pw : vision12#$
-FTPport : 5395
-
-2) 다인정공
-dine.webmoa21.co.kr 
-ID : dine
-pw : vision12#$
-FTPport : 5403
-
-3) (주)델타텍코리아
-dtk.webmoa21.co.kr
-ID : dtk
-pw : vision12#$
-FTPport : 5407
-
-4) 한국BI기술사업화협회
-kabit.webmoa21.co.kr
-ID : kabit
-pw : vision12#$
-FTPport : 5402
-
----- PHP (58.230.162.194) ----
-1) 이노와이어리스(아큐버)
-accuver.webmoa21.co.kr 
-ID : accuver
-pw : vision12#$
-FTPport : 5213
-
-2) 비엘티
-http://blt.webmoa21.co.kr/kr/index.php
-ID : blt
-pw : vision12#$
-FTPport : 5213
-
-
+[
+	{
+		"name": "씨에이치엠",
+		"host": "chm.webmoa21.co.kr",
+		"port": 5395,
+		"type": "ftp",
+		"username": "chm",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "시안",
+		"host": "sian.webmoa21.co.kr",
+		"port": 4812,
+		"type": "ftp",
+		"username": "sian",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "아큐버",
+		"host": "accuver.webmoa21.co.kr",
+		"port": 5213,
+		"type": "ftp",
+		"username": "accuver",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "한국BI기술사업화협회",
+		"host": "kabit.webmoa21.co.kr",
+		"port": 5402,
+		"type": "ftp",
+		"pasvTimeout": 0,
+		"username": "kabit",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "한국BI사업화협회",
+		"host": "58.230.162.200",
+		"port": "5404",
+		"type": "ftp",
+		"username": "bivoucher",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "휴라이트",
+		"host": "58.230.162.202",
+		"port": 4670,
+		"type": "ftp",
+		"username": "huelight",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "다인정공",
+		"host": "dine.webmoa21.co.kr",
+		"port": 5403,
+		"type": "ftp",
+		"username": "dine",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "(주)델타텍코리아",
+		"host": "dtk.webmoa21.co.kr",
+		"port": 5407,
+		"type": "ftp",
+		"username": "dtk",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "본정보",
+		"host": "58.230.162.207",
+		"port": 5021,
+		"type": "ftp",
+		"username": "boninfo",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "네오디앤피",
+		"host": "neodnp.com",
+		"port": 5215,
+		"type": "ftp",
+		"username": "neodnp1",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "티엘코리아",
+		"host": "tlkoreanew.webmoa21.co.kr",
+		"port": 5414,
+		"type": "ftp",
+		"username": "tlkoreanew",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "(주)황산",
+		"host": "58.230.162.202",
+		"port": 4512,
+		"type": "ftp",
+		"username": "anynble",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "티카로스",
+		"host": "58.230.162.200",
+		"port": 5409,
+		"type": "ftp",
+		"username": "ticaros",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "(주)포산인더스트리",
+		"host": "posan.webmoa21.co.kr",
+		"port": 5417,
+		"type": "ftp",
+		"username": "posan",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "스파크바이오파마",
+		"host": "58.230.162.194",
+		"port": 5213,
+		"type": "ftp",
+		"username": "sparkbio",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "비엘티",
+		"host": "58.230.162.194",
+		"port": 5213,
+		"type": "ftp",
+		"username": "blt",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "코젠바이오텍",
+		"host": "58.230.162.233",
+		"port": 5131,
+		"type": "ftp",
+		"username": "kogene",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "스코트라",
+		"host": "58.230.162.200",
+		"port": 5352,
+		"type": "ftp",
+		"username": "scotra",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "블룸에너지",
+		"host": "58.230.162.202",
+		"port": "4532",
+		"type": "ftp",
+		"username": "bloomenergy",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "(주)가스디엔에이",
+		"host": "58.230.162.202",
+		"port": "4628",
+		"type": "ftp",
+		"username": "gasdna",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "jroot(일렉콤)",
+		"host": "58.230.162.200",
+		"port": "5418",
+		"type": "ftp",
+		"username": "jroot2",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "메리제이 콘텐츠",
+		"host": "58.230.162.207",
+		"port": "5196",
+		"type": "ftp",
+		"username": "marryj",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "웨이브피아",
+		"host": "58.230.162.200",
+		"port": "5421",
+		"type": "ftp",
+		"username": "wavepia",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "A&TKOREA",
+		"host": "58.230.162.200",
+		"port": "5385",
+		"type": "ftp",
+		"username": "antkorea",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "웹모아인트라넷",
+		"host": "58.230.162.202",
+		"port": "5384",
+		"type": "ftp",
+		"username": "intranet",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "webmoanew",
+		"host": "58.230.162.202",
+		"port": "5606",
+		"type": "ftp",
+		"username": "webmoanew",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "쿠보텍",
+		"host": "58.230.162.200",
+		"port": "5321",
+		"type": "ftp",
+		"username": "kuwotech",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "그린환경종합센터",
+		"host": "58.230.162.207",
+		"port": "5074",
+		"type": "ftp",
+		"username": "gecc",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	}
+]
