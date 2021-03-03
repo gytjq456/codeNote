@@ -1,0 +1,106 @@
+#mainVisual .item {
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 500px;
+          perspective: 500px;
+}
+
+#mainVisual .item.active-item .txtBox h2, #mainVisual .item.active-item .txtBox p, #mainVisual .item.on .txtBox h2, #mainVisual .item.on .txtBox p {
+  opacity: 1;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+#mainVisual .item.active-item .bg .block, #mainVisual .item.on .bg .block {
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  opacity: 1;
+  height: 100%;
+}
+
+#mainVisual .item .bg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  overflow: hidden;
+  left: 0;
+  z-index: -1;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#mainVisual .item .bg .block {
+  width: calc(100% / 8);
+  position: relative;
+  background-attachment: fixed !important;
+  background-position: center !important;
+  display: block;
+  height: 0;
+  -webkit-transform: translateZ(100px);
+          transform: translateZ(100px);
+  opacity: 0;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+#mainVisual .item .bg .block:nth-child(2) {
+  -webkit-transition-delay: 0.4s;
+          transition-delay: 0.4s;
+}
+
+#mainVisual .item .bg .block:nth-child(3) {
+  -webkit-transition-delay: 0.6s;
+          transition-delay: 0.6s;
+}
+
+#mainVisual .item .bg .block:nth-child(4) {
+  -webkit-transition-delay: 0.8s;
+          transition-delay: 0.8s;
+}
+
+#mainVisual .item1 .bg .block {
+  background: url(/img/main/mainVisual01.jpg);
+}
+
+#mainVisual .item2 .bg .block {
+  background: url(/img/main/mainVisual02.jpg);
+}
+
+#mainVisual .slick-dots {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  max-width: 1300px;
+}
+
+#mainVisual .slick-dots li {
+  margin-right: 10px;
+}
+
+#mainVisual .slick-dots li:last-child {
+  margin: 0;
+}
+
+#mainVisual .slick-dots li.slick-active button {
+  width: 30px;
+  border-radius: 15px;
+  background: #a6b1bb;
+}
