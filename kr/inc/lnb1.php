@@ -1,1 +1,0 @@
-<li class="<?=($file=='management.php') ? 'on':''?>"><a href="/sub/company/management.php">경영철학</a></li>
