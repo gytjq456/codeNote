@@ -307,5 +307,16 @@
 		"path": "/",
 		"autosave": true,
 		"confirm": false
+	},
+	{
+		"name": "인텍플러스",
+		"host": "intekplus.webmoa21.co.kr",
+		"port": "5213",
+		"type": "ftp",
+		"username": "intekplus",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
 	}
 ]
