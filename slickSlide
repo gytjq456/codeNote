@@ -72,3 +72,16 @@ $('#promotion .slideBox').slick('setPosition');
 
 $(slideWrap.children()[index]).slick('resize');
 
+
+$('.main_content .con1 .listBox').on('beforeChange', function(event, _ref, currentSlide, nextSlide){
+		console.log(_ref)
+		var count = _ref.slideCount
+		var selectors = [nextSlide, nextSlide - count, nextSlide + count].map(function(n){
+		return '[data-slick-index="'+n+'"]'
+		}).join(',');
+		$('.slick-now').removeClass('slick-now');
+		console.log(count)
+		$(selectors).addClass('slick-now');
+	});
+
+	$('.main_content .con1 .listBox').find($('.slick-slide[data-slick-index="0"]')).addClass('slick-now');
