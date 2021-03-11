@@ -1,0 +1,8 @@
+	tab_s1.find("li").each(function (index){
+		var _width = $(this).width();
+		var _length = $(this).length;
+		if($(this).hasClass("on")){
+			var _index = index;
+			tab_s1.find("ul").scrollLeft((_width/_length) * _index);
+		}
+	});
