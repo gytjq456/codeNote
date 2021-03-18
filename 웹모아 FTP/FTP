@@ -177,6 +177,17 @@
 		"confirm": false
 	},
 	{
+		"name": "비엘티(실서버)",
+		"host": "121.78.147.8",
+		"port": 22,
+		"type": "sftp",
+		"username": "blt",
+		"password": "blt2014!@",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
 		"name": "코젠바이오텍",
 		"host": "58.230.162.233",
 		"port": 5131,
@@ -340,12 +351,16 @@
 		"path": "/",
 		"autosave": true,
 		"confirm": false
+	},
+	{
+		"name": "휴니버스",
+		"host": "58.230.162.200",
+		"port": "5431",
+		"type": "ftp",
+		"username": "hunverse",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
 	}
 ]
-
-
-FTP/DB 접속정보
-호스트 : 121.78.147.8
-아이디 : blt
-비밀번호 : blt2014!@
-포트번호 : 22
