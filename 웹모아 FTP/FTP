@@ -298,7 +298,7 @@
 		"confirm": false
 	},
 	{
-		"name": "쿠보텍",
+		"name": "쿠보텍(실)",
 		"host": "58.230.162.200",
 		"port": "5321",
 		"type": "ftp",
@@ -309,7 +309,7 @@
 		"confirm": false
 	},
 	{
-		"name": "그린환경종합센터",
+		"name": "그린환경종합센터(실)",
 		"host": "58.230.162.207",
 		"port": "5074",
 		"type": "ftp",
@@ -331,7 +331,7 @@
 		"confirm": false
 	},
 	{
-		"name": "위드네이처",
+		"name": "위드네이처(실)",
 		"host": "58.230.162.202",
 		"port": "4861",
 		"type": "ftp",
@@ -342,7 +342,7 @@
 		"confirm": false
 	},
 	{
-		"name": "세준푸드(하늘청)",
+		"name": "세준푸드(하늘청, 실)",
 		"host": "58.230.162.200",
 		"port": "5310",
 		"type": "ftp",
@@ -358,6 +358,28 @@
 		"port": "5431",
 		"type": "ftp",
 		"username": "hunverse",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "범석엔지니어링(실)",
+		"host": "58.230.162.200",
+		"port": "5013",
+		"type": "ftp",
+		"username": "bseng21",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "(주)한국에바라정밀기계(실)",
+		"host": "58.230.162.207",
+		"port": "5062",
+		"type": "ftp",
+		"username": "ebarak",
 		"password": "vision12#$",
 		"path": "/",
 		"autosave": true,
