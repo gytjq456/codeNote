@@ -384,5 +384,71 @@
 		"path": "/",
 		"autosave": true,
 		"confirm": false
+	},
+	{
+		"name": "에어퍼스트",
+		"host": "58.230.162.202",
+		"port": "4506",
+		"type": "ftp",
+		"username": "airfirst",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "위성이동통신포럼",
+		"host": "satcomforum.webmoa21.co.kr",
+		"port": "5440",
+		"type": "ftp",
+		"username": "satcomforum",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "위성이동통신포럼(실)",
+		"host": "satcomforum.org",
+		"port": "5903",
+		"type": "ftp",
+		"username": "sc2021",
+		"password": "vhfja2021!!",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "진학학원",
+		"host": "jinhak.webmoa21.co.kr",
+		"port": "5441",
+		"type": "ftp",
+		"username": "jinhak",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "탁스코",
+		"host": "tacsco.webmoa21.co.kr",
+		"port": "5213",
+		"type": "ftp",
+		"username": "tacsco",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
+	},
+	{
+		"name": "브리즈텍스",
+		"host": "bristex.webmoa21.co.kr",
+		"port": "5213",
+		"type": "ftp",
+		"username": "bristex",
+		"password": "vision12#$",
+		"path": "/",
+		"autosave": true,
+		"confirm": false
 	}
 ]
