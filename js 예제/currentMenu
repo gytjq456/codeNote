@@ -1,0 +1,19 @@
+	<script>
+		$(function(){
+			var num = "<?=$mNum?>";
+			var pageTit = "<?=$pageTit?>";
+			
+			var depth2 = $("nav .depth1 > li:eq("+(num-1)+")").find(".depth2").clone();
+			$("#sv > div").append(depth2)
+
+			$("#sv li").each(function(){
+				var currentMenu = $(this).text();
+				if(pageTit == currentMenu){
+					$(this).addClass("on")
+					return false;
+				}
+			})
+
+		})
+
+	</script>
