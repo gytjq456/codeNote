@@ -1,3 +1,4 @@
+var idx = 0;
 function resizeFn(winWidth) {
 	for (var i = 0; i < mainContChild.length; i++) {
 		mainContChild[i].style.height = winHeight + "px";
@@ -13,7 +14,7 @@ function resizeFn(winWidth) {
 		$("footer").off('scroll touchmove mousewheel');
 		$(mainContChild).off('scroll touchmove mousewheel');
 	} else {
-		var idx = 0;
+
 		secLi.on("click", function () {
 			idx = $(this).index();
 			if (!isScroll) {
@@ -25,7 +26,6 @@ function resizeFn(winWidth) {
 		$(window).off('scroll DOMScroll mousewheel DOMMousewheel');
 		$(window).on('scroll DOMScroll mousewheel DOMMousewheel', function (e) {
 			// 마우스 휠 방향
-
 			var wheelDelta = e.originalEvent.wheelDelta;
 			if (!isScroll) {
 				if (wheelDelta > 0) {
@@ -38,11 +38,7 @@ function resizeFn(winWidth) {
 					// 휠 아래
 					idx++;
 				}
-				if (idx > 0) {
-					header.addClass("on")
-				} else {
-					header.removeClass("on")
-				}
+
 				fullPageSlide(idx)
 				isScroll = true
 			}
@@ -54,6 +50,11 @@ function resizeFn(winWidth) {
 function fullPageSlide(idx) {
 	secLi.siblings().removeClass("on")
 	secLi.eq(idx).addClass("on")
+	if (idx > 0) {
+		header.addClass("on")
+	} else {
+		header.removeClass("on")
+	}
 	if (idx == itemLen - 1) {
 		var top = $("footer").height();
 		$(mainContChild).stop().animate({
