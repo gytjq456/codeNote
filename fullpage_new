@@ -1,0 +1,72 @@
+function resizeFn(winWidth) {
+	for (var i = 0; i < mainContChild.length; i++) {
+		mainContChild[i].style.height = winHeight + "px";
+	}
+
+	$("#mainVisual .item").css({
+		height: winHeight
+	})
+
+	// 기기 종류
+	if (winWidth <= 1200) {
+		console.log("모바일")
+		$("footer").off('scroll touchmove mousewheel');
+		$(mainContChild).off('scroll touchmove mousewheel');
+	} else {
+		var idx = 0;
+		secLi.on("click", function () {
+			idx = $(this).index();
+			if (!isScroll) {
+				fullPageSlide(idx)
+				isScroll = true;
+			}
+		})
+
+		$(window).off('scroll DOMScroll mousewheel DOMMousewheel');
+		$(window).on('scroll DOMScroll mousewheel DOMMousewheel', function (e) {
+			// 마우스 휠 방향
+
+			var wheelDelta = e.originalEvent.wheelDelta;
+			if (!isScroll) {
+				if (wheelDelta > 0) {
+					// 마우스 휠 위
+					idx--;
+					if (idx <= 0) {
+						idx = 0;
+					}
+				} else {
+					// 휠 아래
+					idx++;
+				}
+				if (idx > 0) {
+					header.addClass("on")
+				} else {
+					header.removeClass("on")
+				}
+				fullPageSlide(idx)
+				isScroll = true
+			}
+		})
+
+	}
+}
+
+function fullPageSlide(idx) {
+	secLi.siblings().removeClass("on")
+	secLi.eq(idx).addClass("on")
+	if (idx == itemLen - 1) {
+		var top = $("footer").height();
+		$(mainContChild).stop().animate({
+			"transform": "translateY(-" + top + "px))"
+		}, 800, function () {
+			isScroll = false
+		})
+	} else {
+		$(mainContChild).stop().animate({
+			transform: "translateY(0)",
+			top: -100 * idx + "%"
+		}, 800, function () {
+			isScroll = false
+		})
+	}
+}
