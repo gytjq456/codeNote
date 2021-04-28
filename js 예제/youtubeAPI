@@ -62,4 +62,58 @@
     }
 
 
+
+
+
+
+
+
+// POST commands to YouTube or Vimeo API
+	function postMessageToPlayer(player, command) {
+		if (player == null || command == null) return;
+		player.contentWindow.postMessage(JSON.stringify(command), "*");
+	}
+
+	function playPauseVideo(slick, control) {
+		var currentSlide, slideType, player;
+
+		currentSlide = slick.find(".slick-current");
+		slideType = currentSlide.attr("class").split(" ")[1];
+		player = currentSlide.find("iframe").get(0);
+
+		if(slideType === "youtube"){
+			switch (control) {
+				case "play":
+					mainVisu.slick('slickPause');
+					postMessageToPlayer(player, {
+						"event": "command",
+						"func": "mute"
+					});
+					postMessageToPlayer(player, {
+						"event": "command",
+						"func": "playVideo"
+					});
+					break;
+				case "pause":
+					postMessageToPlayer(player, {
+						"event": "command",
+						"func": "pauseVideo"
+					});
+					break;
+			}
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
