@@ -52,6 +52,10 @@
     var done = false;
     function onPlayerStateChange(event) {
       event.target.playVideo();
+		if (event.data === 0) {
+			//여기에 재생이 끝났을 때 실행시킬 스크립트 작성
+			mainVisu.slick("slickNext")
+		}      
     }
     function stopVideo() {
     player.stopVideo();
