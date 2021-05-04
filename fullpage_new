@@ -84,9 +84,9 @@ function fullPageSlide(idx) {
 
 	if (idx == itemLen - 1) {
 		idx = itemLen - 2
-		var top = $("footer").height();
+		var top = $("#footer").innerHeight();
 		$(mainContChild).stop().animate({
-			"transform": "translateY(-" + top + "px))"
+			top: (-100 * idx) - (top / winHeight * 100) + "%"
 		}, 800, function () {
 			isScroll = false
 		})
