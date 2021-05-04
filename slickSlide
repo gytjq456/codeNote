@@ -85,3 +85,8 @@ $('.main_content .con1 .listBox').on('beforeChange', function(event, _ref, curre
 	});
 
 	$('.main_content .con1 .listBox').find($('.slick-slide[data-slick-index="0"]')).addClass('slick-now');
+	
+	
+	
+visu.slick('slickPlay')
+visu.slick('slickPause')
