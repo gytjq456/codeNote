@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<textarea class="form-control svelte-y9thn0" placeholder="Paste your text here"></textarea>
+	<ul>
+		<li>
+			<input type="radio" name="convert" id="convert-space">
+			<label for="convert-space">Space</label>
+		</li>
+		<li>
+			<input type="radio" name="convert" id="convert-dash">
+			<label for="convert-dash">Dash</label>
+		</li>
+		<li>
+			<input type="radio" name="convert" id="convert-none" checked>
+			<label for="convert-none">None</label>
+		</li>
+	</ul>
+	<button type="button" id="convert_btn">convert</button>
+	<div class="result">
+
+	</div>
+</body>
+<script>
+	var textVal = document.querySelector(".form-control");
+	var convert_btn = document.querySelector("#convert_btn");
+	var result = document.querySelector(".result");
+	var chk = document.querySelectorAll('input[name="convert"]');
+
+	textVal.addEventListener("keyup",function(){
+		convert_btn.onclick();
+	})
+
+	for (var i = 0; i < chk.length; i++) {
+		chk[i].addEventListener('change', function (event) {
+			 //console.log(event.target.value)
+			 convert_btn.onclick();
+		});
+	}
+
+	var enter = /(\r\n\t|\n|\r\t)/gm;
+	
+	convert_btn.onclick = function(){
+		var text = textVal.value;
+		var arr = [];
+		for(var i=0; i < text.split(enter).length; i++){
+			var val = text.split(enter)[i]
+			arr.push(val)
+		}
+		
+		for(var i=0; i<arr.length; i++){
+			if(arr[i].indexOf("\n") < 0){
+				arr[i] = arr[i].trim();
+			}
+		}
+		var str3 = arr.join('');
+		var match = enter.exec(str3);
+		text = str3.replace(enter, " "); 
+		console.log(arr)
+		if (text) {
+			for(var i=0; i < chk.length; i++){
+				if(chk[i].checked){
+					var chkId = chk[i].getAttribute("id");
+					switch (chkId) {
+						case "convert-space":
+							text = str3.replace(enter, " "); 
+							break;
+						case "convert-dash":
+							text = str3.replace(enter, "-"); 
+							break;
+						case "convert-none":
+							text = str3.replace(enter, ""); 
+							break;
+					}
+				}
+			}
+		}
+		result.innerHTML = text + " ";
+		if(result.innerHTML.indexOf(".") > 0 ){
+			console.log(result.innerText)
+			text = result.innerText.replace(/\./gi,". <br>")
+			result.innerHTML = text + " ";
+		}
+	}
+
+</script>
+</html>
