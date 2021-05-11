@@ -1,15 +1,15 @@
 var experience = $("#experience")
-	circle(0)
-	var ifCircle = false;
-	$(window).scroll(function () {
-		if (experience.hasClass("on")) {
-			if (!ifCircle) {
-				ifCircle = true;
-				circle(1)
-			}
+circle(0)
+var ifCircle = false;
+$(window).scroll(function () {
+	if (experience.hasClass("on")) {
+		if (!ifCircle) {
+			ifCircle = true;
+			circle(1)
 		}
+	}
 
-	})
+})
 
 function circle(pos) {
 	$(".circle").each(function () {
