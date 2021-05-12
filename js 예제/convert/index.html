@@ -5,6 +5,19 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
+	<style>
+		textarea {
+			resize: none;
+			width: 500px;
+			height: 200px;
+			padding:20px;
+			font-size: 16px;
+		}
+  
+
+
+
+	</style>
 </head>
 
 <body>
@@ -22,11 +35,26 @@
 			<input type="radio" name="convert" id="convert-none" checked>
 			<label for="convert-none">None</label>
 		</li>
+		<li>
+			<input type="radio" name="convert" id="convert-crNone" checked>
+			<label for="convert-crNone">crNone</label>
+		</li>
 	</ul>
 	<button type="button" id="convert_btn">convert</button>
-	<div class="result">
-
+	<div class="">
+		<textarea name="" id="" cols="30" rows="10" class="result" onfocus="this.select()"></textarea>
 	</div>
+
+
+
+<p class="box01">
+	<button onclick="copy_to_clipboard()">
+		복사하기
+	</button>
+</p>
+
+
+
 </body>
 <script>
 	var textVal = document.querySelector(".form-control");
@@ -35,59 +63,90 @@
 	var chk = document.querySelectorAll('input[name="convert"]');
 
 	textVal.addEventListener("keyup",function(){
-		convert_btn.onclick();
+		fn()
 	})
 
 	for (var i = 0; i < chk.length; i++) {
 		chk[i].addEventListener('change', function (event) {
-			 //console.log(event.target.value)
-			 convert_btn.onclick();
+			 fn()
 		});
 	}
 
 	var enter = /(\r\n\t|\n|\r\t)/gm;
-	
 	convert_btn.onclick = function(){
+		result.focus();
+		copy_to_clipboard()
+	}
+
+
+
+	function fn(){
+		
 		var text = textVal.value;
 		var arr = [];
-		for(var i=0; i < text.split(enter).length; i++){
+		for (var i = 0; i < text.split(enter).length; i++) {
 			var val = text.split(enter)[i]
 			arr.push(val)
 		}
-		
-		for(var i=0; i<arr.length; i++){
-			if(arr[i].indexOf("\n") < 0){
+
+		for (var i = 0; i < arr.length; i++) {
+			if (arr[i].indexOf("\n") < 0) {
 				arr[i] = arr[i].trim();
 			}
 		}
 		var str3 = arr.join('');
 		var match = enter.exec(str3);
-		text = str3.replace(enter, " "); 
+		var type = "";
+		text = str3.replace(enter, " ");
 		console.log(arr)
 		if (text) {
-			for(var i=0; i < chk.length; i++){
-				if(chk[i].checked){
+			for (var i = 0; i < chk.length; i++) {
+				if (chk[i].checked) {
 					var chkId = chk[i].getAttribute("id");
 					switch (chkId) {
 						case "convert-space":
-							text = str3.replace(enter, " "); 
+							text = str3.replace(enter, " ");
 							break;
 						case "convert-dash":
-							text = str3.replace(enter, "-"); 
+							text = str3.replace(enter, "-");
 							break;
 						case "convert-none":
-							text = str3.replace(enter, ""); 
+							text = str3.replace(enter, "");
+							break;
+						case "convert-crNone":
+							type = "convert-crNone";
 							break;
 					}
 				}
 			}
 		}
-		result.innerHTML = text + " ";
-		if(result.innerHTML.indexOf(".") > 0 ){
-			console.log(result.innerText)
-			text = result.innerText.replace(/\./gi,". <br>")
-			result.innerHTML = text + " ";
+
+		// console.log(textArr)
+		if(type != "convert-crNone"){
+			var numReg = /^[0-9]/gm;
+			var textArr = text.split("");
+			for (var i = 0; i < textArr.length; i++) {
+				if (textArr[i].indexOf(".") + 1 > 0) {
+					if(textArr[i+1] == " "){
+						textArr[i + 1] = ""
+					}
+					if(isNaN(textArr[i - 1])){
+						textArr[i] = ".\n";
+					}
+				}
+			}
+			result.value = textArr.join('');
+		}else{
+			result.value = arr.join('');
 		}
+		
+	}
+
+
+	function copy_to_clipboard() {
+		result.select();
+		result.setSelectionRange(0, 99999);
+		document.execCommand("Copy");
 	}
 
 </script>
