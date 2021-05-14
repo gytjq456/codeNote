@@ -1,0 +1,16 @@
+//모바일에서 아이프레임 감싸서 스와이프로 볼 수 있게 함.
+	function wrapIframe() {
+		var iframes = document.querySelectorAll("body iframe");
+
+		if (iframes.length > 0) {
+			iframes.forEach(function (iframe) {
+				iframe.outerHTML = '<div class="mobile-wrapper">' + iframe.outerHTML + '</div>';
+			});
+		}
+	}
+
+	document.addEventListener('DOMContentLoaded', () => {
+		if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+			wrapIframe();
+		}
+	});
