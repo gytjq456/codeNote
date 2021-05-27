@@ -66,11 +66,12 @@ function resizeFn(winWidth) {
 					fullPageSlide(idx, e)
 				} else {
 					// 휠 아래
-					if (idx < itemLen - 1) {
-						idx++;
+					idx++;
+					if (idx == itemLen) {
+						idx = itemLen - 1
 						fullPageSlide(idx, e)
-
 					}
+					fullPageSlide(idx, e)
 				}
 				isScroll = true
 			}
