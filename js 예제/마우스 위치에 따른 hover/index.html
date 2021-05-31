@@ -39,11 +39,11 @@
 	 position: relative;
 	 z-index: 1;
 }
- .more_s1:after {
-	 content: "";
+ .more_s1 span {
+	 display:block;
 	 position: absolute;
-	 left: var(--x);
-	 top: var(--y);
+	 left: 0;
+	 top: 0;
 	 transform: translate(-50%, -50%);
 	 width: 0;
 	 height: 0;
@@ -51,22 +51,23 @@
 	 background: #ef0;
 	 transition: width 0.5s, height 0.5s;
 }
- .more_s1:hover::after {
+ .more_s1:hover span {
 	 width: 500px;
 	 height: 500px;
 }
  
 </style>
 <script>
-		var moreS1 = document.querySelectorAll(".more_s1");
-			for (var i = 0; i < moreS1.length; i++) {
+	var moreS1 = document.querySelectorAll(".more_s1");
+	for (var i = 0; i < moreS1.length; i++) {
 
-				moreS1[i].onmousemove = function (e) {
-					var x = e.pageX - this.offsetLeft;
-					var y = e.pageY - this.offsetTop;
-					this.style.setProperty("--x", x + 'px');
-					this.style.setProperty("--y", y + 'px');
-				}
-			}
+		moreS1[i].onmousemove = function (e) {
+			var x = e.pageX - this.offsetLeft;
+			var y = e.pageY - this.offsetTop;
+
+			this.children[1].style.left = x + "px";
+			this.children[1].style.top = y + "px"
+		}
+	}
 </script>
 </html>
