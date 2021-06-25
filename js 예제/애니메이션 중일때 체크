@@ -1,0 +1,3 @@
+if(!$("div").is(":animated")) {
+    $("div").animate({ left: "+=200px" }, 1000);
+}
