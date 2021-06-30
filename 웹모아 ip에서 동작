@@ -1,0 +1,3 @@
+If Request.ServerVariables("REMOTE_ADDR") = "124.194.27.244" Then
+내용
+End If
