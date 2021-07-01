@@ -1,0 +1,66 @@
+			var initialX = null,
+				initialY = null;
+
+			function initTouch(e) {
+				initialX = `${e.touches ? e.touches[0].clientX : e.clientX}`;
+				initialY = `${e.touches ? e.touches[0].clientY : e.clientY}`;
+			};
+
+			function swipeDirection(e) {
+				if (initialX !== null && initialY !== null) {
+					var currentX = `${e.touches ? e.touches[0].clientX : e.clientX}`,
+						currentY = `${e.touches ? e.touches[0].clientY : e.clientY}`;
+
+					var diffX = initialX - currentX,
+						diffY = initialY - currentY;
+					var dir;
+					Math.abs(diffX) > Math.abs(diffY)
+						? (
+							0 < diffX
+								? dir = "toLeft"
+								: dir = "toRight"
+						)
+						: (
+							0 < diffY
+								? dir = "toTop"
+								: dir = "toBottom"
+						)
+					console.log(dir);
+					if (!isScroll) {
+						switch (dir) {
+							case "toLeft":
+								idx++;
+								if (idx > 2) {
+									idx = 2;
+								}
+								break;
+							case "toRight":
+								idx--;
+								if (idx < 0) {
+									idx = 0;
+								}
+								break;
+							default:
+								break;
+						}
+
+						isScroll = true;
+						cPage.stop().animate({
+							"transform": "translateX(-" + (winW * idx) + "px)"
+						}, 800, function () {
+							isScroll = false;
+						})
+						var bar = $("#slideCont .bar");
+						bar.find("span").css({
+							width: (33.3333333 * (idx + 1)) + "%"
+						})
+					}
+
+					initialX = null;
+					initialY = null;
+				}
+			}
+
+			var slideSolution = document.querySelector("#slideCont");
+			slideSolution.addEventListener("touchstart", initTouch);
+			slideSolution.addEventListener("touchmove", swipeDirection);
