@@ -40,6 +40,9 @@
     }
 
     // 4. The API will call this function when the video player is ready.
+    
+    player.loadVideoById(id);
+    
     function onPlayerReady(event) {
 
     event.target.playVideo();
