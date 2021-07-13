@@ -14,3 +14,24 @@
 
 
 /site/down.asp?filename=[한국BI기술사업화협회] 회무비 통장.hwp
+
+
+
+
+PHP를 사용하는 경우
+
+<? 
+header( "Location: main/frame.html" ); 
+?>
+
+ASP를 사용하는 경우
+
+<% 
+response.redirect "main/frame.html" 
+%>
+
+JSP를 사용하는 경우
+
+<% 
+response.sendRedirect("main/frame.html"); 
+%>
