@@ -27,3 +27,39 @@ new numberCounter("counter1", 2013);
 new numberCounter("counter2", 3000);
 new numberCounter("counter3", 200);
 new numberCounter("counter4", 3000);
+
+
+
+
+
+
+
+	var counter1 = makeCounter(2000, 1, 10, 8);
+	var counter2 = makeCounter(300, 2, 2, 10);
+	var counter3 = makeCounter(3700, 3, 10, 1.5);
+	var counter4 = makeCounter(10, 4, 1, 100);
+
+
+
+	function makeCounter(num, idx, add, speed) {
+		var count = 0;
+		return function () {
+			var t = setInterval(function () {
+				count += add;
+				$("#overview .list li").eq(idx - 1).find("strong").text(count)
+				if (num <= count) {
+					clearInterval(t)
+				}
+			}, speed)
+
+		};
+	}
+
+
+
+
+
+
+
+
+
