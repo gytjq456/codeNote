@@ -90,3 +90,47 @@ $('.main_content .con1 .listBox').on('beforeChange', function(event, _ref, curre
 	
 visu.slick('slickPlay')
 visu.slick('slickPause')
+
+
+
+
+
+
+	$('.section2-icon-box').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+		slideAct = slideBox.find(".slick-active");
+		var count = slick.slideCount;
+		var currentTarget = $(this).find(".slick-current");
+		var nextTarget = $(this).find(".slick-active").last().next();
+
+
+		var decl = currentSlide - nextSlide;
+		if(decl == 1 || decl == (slick.slideCount-1)*(-1) ) {
+			console.log('is prev direction');
+			if(!currentTarget.prev().length){
+				
+			}else{
+				$(this).find(".slick-active").last().prev().addClass("on111")
+				currentTarget.removeClass("on111")
+				if(nextSlide != 0){
+					currentTarget.prev().addClass("on111")
+				}
+			}
+		} else {
+			console.log('is next direction');
+			var prev = nextTarget.prev();
+			currentTarget.next().addClass("on111")
+			if(!nextTarget.length){
+				prev.removeClass("on111")
+			}else{
+				if(nextSlide == count - slideAct.length){
+					prev.removeClass("on111")
+					nextTarget.next().removeClass("on111")
+				}else{
+					prev.removeClass("on111")
+					nextTarget.addClass("on111")					
+				}
+
+			}
+		}			
+    });
+
