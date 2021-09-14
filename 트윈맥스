@@ -1,0 +1,26 @@
+https://webkimsora.tistory.com/30?category=692303
+
+http://mm2800.dothome.co.kr/animation-gsap/index.html#c
+
+
+	var dt = visu.find(".item").find('dt');
+	var dd = visu.find(".item").find('dd');
+
+	var timeLine = new TimelineMax();
+	timeLine.from(
+		dt, 0.8, {
+		x: -130,
+		opacity: 0,
+		delay: 0.5,
+		ease: Power1.easeInOut,
+	}, "black").from(
+		dd, 0.8, {
+		x: -130,
+		opacity: 0,
+		delay: 0.7,
+		ease: Power1.easeInOut,
+	}, "black")
+  
+  
+  timeLine.reverse();
+  timeLine.restart()
