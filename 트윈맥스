@@ -1,3 +1,10 @@
+<script type='text/javascript' src='https://www.enftech.com/wp-content/themes/kai/js/vendors/greensock/SplitTextmin.js?ver=1.0'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+
+
 https://webkimsora.tistory.com/30?category=692303
 
 http://mm2800.dothome.co.kr/animation-gsap/index.html#c
