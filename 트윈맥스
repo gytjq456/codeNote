@@ -31,3 +31,55 @@ http://mm2800.dothome.co.kr/animation-gsap/index.html#c
   
   timeLine.reverse();
   timeLine.restart()
+
+
+
+
+var listLi = document.querySelectorAll(".list");
+	listLi.forEach(function (item) {
+		var item = document.querySelectorAll(".list li");
+		// var anim = gsap.from(item, {
+		// 	y: -130,
+		// 	opacity: 0,
+		// 	delay: 0.3 * $(item).index(),
+		// 	paused: true
+		// })
+		var anim = gsap.set(item, {
+			y: -130,
+			opacity: 0,
+			duration: 1,
+			ease: 'power3.out',
+			overwrite: 'auto',
+		});
+		ScrollTrigger.create({
+			trigger: item,
+			start: "top 70%",
+			//end: 'bottom 500px',
+			onEnter: () => gsap.to(item, {
+				y: 0,
+				opacity: 1,
+				stagger: 0.3,
+			}),
+			onLeaveBack: () => gsap.to(item, {
+				y: -130,
+				opacity: 0,
+				stagger: 0.3,
+			}),
+			// onLeave: () => gsap.to(item, {
+			// 	y: -50,
+			// 	opacity: 0,
+			// 	stagger: 0.2,
+			// }),
+			// onEnterBack: () => gsap.to(item, {
+			// 	y: 0,
+			// 	opacity: 1,
+			// 	stagger: -0.2,
+			// }),
+			// ScrollTrigger.create({
+			// 	trigger: item,
+			// 	start: "top bottom",
+			// 	onLeaveBack: function onLeaveBack() {
+			// 		return anim.reverse(-1);
+			// 	}
+		});
+	})
