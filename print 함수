@@ -1,0 +1,28 @@
+<script>
+		function pagePrint(obj){
+			var complete = $(obj).closest("tr").find(".complete");
+			var htmlArr = [];
+			if(complete.length){
+				complete.each(function(){
+					var link = $(this).parent().attr("href");
+					$.ajax({
+						type : "post",           
+						url : link,
+						data : "html",           
+						async:false,
+						success : function(res){ 
+							document.t_p.printZone.value = res;
+							htmlArr.push(res);
+						},
+						error : function(XMLHttpRequest, textStatus, errorThrown){ 
+							alert("통신 실패.")
+						}
+					});		
+				})
+				document.t_p.printZone.value = htmlArr;
+				window.open("/sub/company/pop.asp","width=800,height=600,top=100,left=100,noresizable,toolbar=no,status=no,scrollbars=yes,directory=no");
+			}else {
+				alert("완료된 평가항목이 없습니다.")
+			}
+		}
+	</script>
