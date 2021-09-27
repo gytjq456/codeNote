@@ -1,0 +1,12 @@
+
+@-webkit-keyframes test {
+  0% {
+    -webkit-filter: blur(0) hue-rotate(0deg);
+            filter: blur(0) hue-rotate(0deg);
+  }
+  100% {
+    -webkit-filter: blur(300px) hue-rotate(0deg);
+            filter: blur(300px) hue-rotate(0deg);
+    opacity: 0;
+  }
+}
