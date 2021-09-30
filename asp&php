@@ -35,3 +35,9 @@ JSP를 사용하는 경우
 <% 
 response.sendRedirect("main/frame.html"); 
 %>
+
+---- php 10이하 정수 앞에 0 붙이기
+<td><?=sprintf("%02d", $i)?></td>
+
+---- 1000천 단위별로 콤마 찍기
+<td><?=number_format($i)?></td>
