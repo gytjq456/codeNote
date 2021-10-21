@@ -8,15 +8,19 @@ $(function () {
 	})
 
 	var w = slideWidth / 2 * -1;
-	$(".slick-active").prev().find(".inner").css({
-		'transform': 'translateX(' + (w * -1) + 'px)'
-	})
-	$(".slick-active").find(".inner").css({
-		'transform': 'translateX(0px)'
-	})
+	$(window).on("resize", function () {
+		slideWidth = $(window).width();
+		w = slideWidth / 2 * -1;
+		$(".slick-active").prev().find(".inner").css({
+			'transform': 'translateX(' + (w * -1) + 'px)'
+		})
+		$(".slick-active").find(".inner").css({
+			'transform': 'translateX(0px)'
+		})
 
-	$(".slick-active").next().find(".inner").css({
-		'transform': 'translateX(' + w + 'px)'
+		$(".slick-active").next().find(".inner").css({
+			'transform': 'translateX(' + w + 'px)'
+		})
 	})
 
 	$(".slide_ctn").on("beforeChange", function (e, slick, currentSlide, nextSlide) {
