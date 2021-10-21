@@ -8,19 +8,11 @@ $(function () {
 	})
 
 	var w = slideWidth / 2 * -1;
+	slideFn(w)
 	$(window).on("resize", function () {
 		slideWidth = $(window).width();
 		w = slideWidth / 2 * -1;
-		$(".slick-active").prev().find(".inner").css({
-			'transform': 'translateX(' + (w * -1) + 'px)'
-		})
-		$(".slick-active").find(".inner").css({
-			'transform': 'translateX(0px)'
-		})
-
-		$(".slick-active").next().find(".inner").css({
-			'transform': 'translateX(' + w + 'px)'
-		})
+		slideFn(w)
 	})
 
 	$(".slide_ctn").on("beforeChange", function (e, slick, currentSlide, nextSlide) {
@@ -59,4 +51,18 @@ $(function () {
 
 	})
 	$(".slide_ctn").find($('.slick-slide[data-slick-index="0"]')).addClass('slick-now');
+	
+	
+	function slideFn(w) {
+		visu.find(".slick-active").prev().find(".bg").css({
+			'transform': 'translateX(' + (w * -1) + 'px)'
+		})
+		visu.find(".slick-active").find(".bg").css({
+			'transform': 'translateX(0px)'
+		})
+
+		visu.find(".slick-active").next().find(".bg").css({
+			'transform': 'translateX(' + w + 'px)'
+		})
+	}	
 })
