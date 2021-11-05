@@ -1,0 +1,15 @@
+<script type="text/javascript">
+$(document).ready(function () {
+	if($('html').is('.ie6, .ie7, .ie8, ie9')) {
+		$('div.ie_alert_text').show();
+		$('div.ie_alert_text').html('현재 사이트는 IE9 미만의 하위브라우저를 지원하지 않습니다. <br />브라우저를 최신 버전으로 <b>업데이트</b>해 주세요.');
+	}
+	//$(document).bind('keydown',function(e){ if ( e.keyCode == 123 /* F12 */) { e.preventDefault(); e.returnValue = false; } }); 
+});
+  if(/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
+    window.location = 'microsoft-edge:' + window.location;
+    setTimeout(function() {
+      window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
+    }, 1);
+  }
+</script>
