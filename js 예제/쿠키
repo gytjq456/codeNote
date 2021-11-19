@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(function(){
+            if(document.cookie != ""){
+                var cookie = document.cookie;
+                var cookieObj = cookieToJson(cookie);
+                var userId = cookieObj.userId;
+                if(userId != ""){
+                    $("#remId").prop("checked", true);
+                    $("#id").val(userId);
+                }
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <input type="text" name="" id="id" placeholder="ID를 입력하세요"> 
+    <br>
+    <input type="checkbox" name="" id="remId">아이디를 기억합니다.
+
+
+    <script>
+        $(function(){
+
+
+
+            $("#remId").on("change",function(){
+                var exdate = new Date();
+                if($("#remId").prop("checked")){
+                    exdate.setDate(exdate.getDate() + 30);
+                    document.cookie = "userId="+$("#id").val()+";expires="+exdate.toString();
+                }else{
+                    //체크 해제
+                    exdate.setDate(exdate.getDate()-1);
+                    document.cookie = "userId="+$("#id").val()+";expires="+exdate.toString();
+                }
+            })
+            
+        })
+
+        function cookieToJson(cookie){
+            var cookieJson = [];
+            var cookies = cookie.split("; ");
+            for(var i=0; i<cookies.length; i++){
+                var entry = cookies[i].split("=");
+                cookieJson[entry[0]] = entry[1];
+            }
+
+            return cookieJson;
+        }
+
+    </script>
+</body>
+</html>
