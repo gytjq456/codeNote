@@ -14,7 +14,7 @@
 			margin:0;
 		}
 		.bg	{
-			background: url("/sample_img.jpg") no-repeat;
+			background: url("/sample_img.jpg") no-repeat center;
 			background-size: cover;
 			position: fixed;
 			height: 100%;
@@ -27,9 +27,22 @@
 			width: 360px;
 			height: 420px;
 			overflow: hidden;
-			/* background: #fff; */
 			position: relative;
 		}
+
+		.box::before {
+			content: '';
+			position: absolute;
+			top: 0; left:0; right:0; bottom:0;
+			background: url("/sample_img.jpg") center;
+			background-size: cover;
+			background-attachment: fixed;
+			filter: blur(6px); 
+			width: 100%;
+			height: 100%;
+			
+		}
+		
 		.txt {
 			height: 100%;
 			display: flex;
@@ -40,31 +53,8 @@
 			font-size: 40px;
 			z-index: 10;
 			position: relative;;
-			/* border:1px solid #cccc; */
 		}
-		.box::after {
-			content: "";
-			width: 100%;
-			height: 100%;
-			background: #fff;
-			display: block;
-			position: absolute;
-			left:0;
-			top:0;
-			opacity: 0.2;
-		}
-		.box:before {
-			content:"";
-			width: 100%;
-			height: 100%;
-			background: url("/sample_img.jpg") no-repeat;
-			background-attachment: fixed;
-			filter: blur(6px);
-			display: block;
-			position: absolute;
-			left:0;
-			top:0;
-		}
+	
 		.inner {
 			max-width: 1500px;
 			margin:0 auto;
@@ -80,12 +70,17 @@
 			background: #0e3173;
 			margin:0 65px;
 		}
+
+		.cont {
+			height: 1000px;
+			background: red;
+			position: relative;
+		}
 	</style>
 </head>
 <body>
 	<div class="bg"></div>
 	<div class="inner">
-
 		<div class="box">
 			<div class="txt">
 				tset
@@ -93,10 +88,12 @@
 		</div>
 		<div class="info"></div>
 		<div class="box">
+			<div class="blur"></div>
 			<div class="txt">
 				tset2
 			</div>
 		</div>
 	</div>
+	<div class="cont"></div>
 </body>
 </html>
