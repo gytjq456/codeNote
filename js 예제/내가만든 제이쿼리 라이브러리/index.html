@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<style>
+	* {
+		padding: 0;
+		margin:0;
+	}
+
+
+	header {
+		background: #333;
+		overflow: hidden;
+		transition: all 0.5s;
+		height: 60px;
+	}
+	ul,
+	li {
+		list-style: none;
+	}
+	#gnb {
+		
+	}
+	.depth1 {
+		display: flex;
+		justify-content: center;
+	}
+	.depth1 > li { position: relative;}
+	.depth1 > li > a { padding:0 20px; display:flex; height:60px; align-items: center; justify-content: center;}
+	.depth2 {
+		position: absolute;
+		left:0;
+		top:100%;
+		width: 100%;
+		text-align: center;
+		display: none;
+	}
+	.depth2 a {
+		font-size: 14px;
+	}
+
+	.tab {
+		margin-top:200px;
+	}
+	.tab ul { display:flex; align-items: center; justify-content: center;}
+	.tab ul li{ width:33.3333333%; border:1px solid #ddd; border-right: none;}
+	.tab ul li:last-child { border-right:1px solid #ddd;}
+	.tab ul li a { display: flex; align-items: center; justify-content: center; height:50px; }
+	.tab ul li.on a { background: #000; color:#fff;}
+
+	.tabContent { border:1px solid #ddd; text-align: center; height:300px; margin-top:30px;}
+	.tabContent .tabItem:not(:first-child) { display:none;}
+		.toggleTab { max-width: 1200px; margin:200px auto;}
+		.toggleTab li:not(:last-child) { border-bottom: 1px solid #ddd;;}
+		.toggleTab button { 
+			cursor: pointer;
+			background: none; border:none;
+			display: flex;
+			text-align: left;
+			padding:20px
+		}
+		.toggleTab span { width:30px; flex-shrink: 0;}
+		.toggleTab .txtBox { border-top:1px solid #ddd; padding:20px 50px; background: #eee; display:none;}
+
+	@media screen and (max-width:1200px){
+		header {
+			height: auto;
+		}
+		.depth1 {
+			display: block;
+		}
+		.depth2 {
+			position: static;
+		}
+
+
+	}
+</style>
+<body>
+	<header>
+		<nav id="gnb">
+			<ul class="depth1">
+				<li>
+					<a href="#;">메뉴1</a>
+					<ul class="depth2">
+						<li><a href="#;">메뉴1_1</a></li>
+						<li><a href="#;">메뉴1_2</a></li>
+						<li><a href="#;">메뉴1_3</a></li>
+						<li><a href="#;">메뉴1_4</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#;">메뉴2</a>
+					<ul class="depth2">
+						<li><a href="#;">메뉴2_1</a></li>
+						<li><a href="#;">메뉴2_2</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#;">메뉴3</a>
+					<ul class="depth2">
+						<li><a href="#;">메뉴3_1</a></li>
+						<li><a href="#;">메뉴3_2</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#;">메뉴4</a>
+					<ul class="depth2">
+						<li><a href="#;">메뉴4_1</a></li>
+						<li><a href="#;">메뉴4_2</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</header>
+
+
+	<div class="tab">
+		<ul>
+			<li class="on"><a href="#;">tap1</a></li>
+			<li><a href="#;">tap2</a></li>
+			<li><a href="#;">tap3</a></li>
+		</ul>
+	</div>
+	<div class="tabContent">
+		<section class="tabItem">1</section>
+		<section class="tabItem">2</section>
+		<section class="tabItem">3</section>
+	</div>
+
+
+
+	<div class="toggleTab">
+		<ul>
+			<li>
+				<button>
+					<span>Q</span>
+					<p>내용 내용 내용 내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용 내용 내용 내용 내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용</p>
+				</button>
+				<div class="txtBox">
+					<p>내용 내용 내용 내용 내용 내용</p>
+				</div>
+			</li>
+			<li>
+				<button>
+					<span>Q</span>
+					<p>내용 내용 내용 내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용 내용 내용 내용 내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용내용 내용 내용</p>
+				</button>
+				<div class="txtBox">
+					<p>내용 내용 내용 내용 내용 내용</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+
+
+	<script src="/main.js"></script>
+	<script src="/common.js"></script>
+</body>
+</html>
