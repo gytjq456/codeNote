@@ -3,6 +3,7 @@ let window_width = $(window).width();
 $(window).on("resize", function () {
 	window_width = $(window).width();
 })
+
 $.fn.greenify = function (options) {
 	this.css("color", "green");
 	let settings = $.extend({
@@ -88,8 +89,13 @@ $.fn.tabChange = function (tabContent) {
 
 
 // toggleTab menu click event
-
 $.fn.toggleTab = function (txtBox) {
 	$(this).closest(".toggleTab").find(".txtBox").stop().slideUp();
 	$(this).siblings(txtBox).stop().slideToggle();
+}
+
+// gnb Clone => lnb 
+$.fn.gnbClone = function (lnb, depth, num) {
+	let depth2 = depth.clone();
+	lnb.children().append(depth2)
 }

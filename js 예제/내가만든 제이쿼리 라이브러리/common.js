@@ -40,4 +40,10 @@ $(document).ready(function () {
 		$(this).toggleTab(".txtBox");
 	})
 
+
+	// gnb Clone => lnb 
+	let lnb = $("#lnb");
+	let depth2 = $("#gnb .depth1 > li:eq(" + ($pageIdx - 1) + ") .depth2");
+	lnb.gnbClone(lnb, depth2, $pageIdx,);
+
 })
