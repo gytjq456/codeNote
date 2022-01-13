@@ -99,3 +99,28 @@ $.fn.gnbClone = function (lnb, depth, num) {
 	let depth2 = depth.clone();
 	lnb.children().append(depth2)
 }
+
+
+//url 비교
+$.fn.urlCompare = function (lnb) {
+	let location = window.location.pathname;
+	console.log(location);
+	$(this).find("li").each(function (index) {
+		let url = $(this).find("a").attr("href");
+
+		if (location == url) {
+			$(this).addClass("on");
+			let urlSplit = url.split("/");
+			lnb.find("li").each(function (index) {
+				let lnbUrl = $(this).find("a").attr("href");
+				console.log(lnbUrl);
+				if (lnbUrl.indexOf(urlSplit[urlSplit.length - 2]) >= 0) {
+					lnb.find("li").eq(index).addClass("on")
+					return false;
+				}
+			})
+			return false;
+		}
+	})
+}
+

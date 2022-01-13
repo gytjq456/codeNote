@@ -41,9 +41,17 @@ $(document).ready(function () {
 	})
 
 
+
 	// gnb Clone => lnb 
 	let lnb = $("#lnb");
 	let depth2 = $("#gnb .depth1 > li:eq(" + ($pageIdx - 1) + ") .depth2");
 	lnb.gnbClone(lnb, depth2, $pageIdx,);
+
+	// 탭 메뉴가 있는경우 tab & lnb on
+	let tab = $(".tab_s1");
+	if (tab.length) {
+		tab.urlCompare(lnb);
+	}
+
 
 })
