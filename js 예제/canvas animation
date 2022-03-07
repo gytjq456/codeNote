@@ -1,0 +1,29 @@
+<style>
+  canvas { border: 1px solid black; }
+</style>
+<script>
+  var _cvs,
+      _ctx,
+      _img,
+      _frame = 0,
+      _maxFrame = 11;
+  
+  window.onload = function(e) {
+      _cvs = document.querySelector("#myCanvas");
+      _ctx = _cvs.getContext("2d");
+      _img = new Image();
+      _img.src = "/img/main/test.jpg";
+      _img.onload = function(e) {
+          setInterval(drawMotion, 1000);
+      }
+  }
+  
+  function drawMotion() {
+      _cvs.width = _cvs.width;
+      _ctx.drawImage(_img, _frame % 4 * 1903, Math.floor(_frame / 4) * 1903,
+                     1903, 937, 0, 0, 1903, 937);
+      _frame = (_frame + 1) % _maxFrame;
+  }
+</script>
+</script>
+<canvas id="myCanvas" width="1903" height="937"></canvas>

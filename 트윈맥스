@@ -1,0 +1,85 @@
+<script type='text/javascript' src='https://www.enftech.com/wp-content/themes/kai/js/vendors/greensock/SplitTextmin.js?ver=1.0'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+
+
+https://webkimsora.tistory.com/30?category=692303
+
+http://mm2800.dothome.co.kr/animation-gsap/index.html#c
+
+
+	var dt = visu.find(".item").find('dt');
+	var dd = visu.find(".item").find('dd');
+
+	var timeLine = new TimelineMax();
+	timeLine.from(
+		dt, 0.8, {
+		x: -130,
+		opacity: 0,
+		delay: 0.5,
+		ease: Power1.easeInOut,
+	}, "black").from(
+		dd, 0.8, {
+		x: -130,
+		opacity: 0,
+		delay: 0.7,
+		ease: Power1.easeInOut,
+	}, "black")
+  
+  
+  timeLine.reverse();
+  timeLine.restart()
+
+
+
+
+var listLi = document.querySelectorAll(".list");
+	listLi.forEach(function (item) {
+		var item = document.querySelectorAll(".list li");
+		// var anim = gsap.from(item, {
+		// 	y: -130,
+		// 	opacity: 0,
+		// 	delay: 0.3 * $(item).index(),
+		// 	paused: true
+		// })
+		var anim = gsap.set(item, {
+			y: -130,
+			opacity: 0,
+			duration: 1,
+			ease: 'power3.out',
+			overwrite: 'auto',
+		});
+		ScrollTrigger.create({
+			trigger: item,
+			start: "top 70%",
+			//end: 'bottom 500px',
+			onEnter: () => gsap.to(item, {
+				y: 0,
+				opacity: 1,
+				stagger: 0.3,
+			}),
+			onLeaveBack: () => gsap.to(item, {
+				y: -130,
+				opacity: 0,
+				stagger: 0.3,
+			}),
+			// onLeave: () => gsap.to(item, {
+			// 	y: -50,
+			// 	opacity: 0,
+			// 	stagger: 0.2,
+			// }),
+			// onEnterBack: () => gsap.to(item, {
+			// 	y: 0,
+			// 	opacity: 1,
+			// 	stagger: -0.2,
+			// }),
+			// ScrollTrigger.create({
+			// 	trigger: item,
+			// 	start: "top bottom",
+			// 	onLeaveBack: function onLeaveBack() {
+			// 		return anim.reverse(-1);
+			// 	}
+		});
+	})

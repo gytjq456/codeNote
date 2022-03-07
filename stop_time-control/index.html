@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+		window.onload = function(){
+			document.getElementById('stop').addEventListener("click", stopit);
+			document.getElementById('start').addEventListener('click', start);
+			document.getElementById('restart').addEventListener('click', restart);
+	
+			var timer = setInterval(carousel, 1000);
+			
+			var time = 600;
+			var isTimer = false;
+			function carousel(){
+				var min = parseInt(time / 60);
+				var sec = time % 60;
+				document.getElementById("demo").innerHTML =  min +"분"+ sec + "초"
+				time--;
+				if(time < 0){
+					clearInterval(timer);
+					document.getElementById("demo").innerHTML = "시간초과"
+				}
+			}
+			function stopit() {
+				isTimer = true;
+				clearInterval(timer);
+			}
+			function start() {
+				if(isTimer){
+					timer = setInterval(carousel, 1000);
+					isTimer = false;
+				}
+			}
+			function restart() {
+				time = 600;
+				start()
+			}
+		}
+
+
+
+
+
+  </script>
+</head>
+<body>
+  <div id="demo"></div>
+	<button type="button" id="stop">Stop the Carousel</button>
+	<button type="button" id="start">Start the Carousel</button>
+	<button type="button" id="restart">Restart the Carousel</button>
+</body>
+</html>

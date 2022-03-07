@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+		<script src="//naver.github.io/egjs-jquery-pauseresume/release/latest/dist/pauseresume.js"></script>
+	<title>Document</title>
+<script>
+	$(function () {
+		var tg = $("#use");
+
+		tg.animate({ 
+			width: '100%' 
+		},6000)
+		$("#start").click(function () {
+			tg.resume();
+		});
+
+		$("#stop").click(function () {
+			tg.pause();
+			console.log(tg.pause())
+		});
+
+
+	});
+</script>
+	<style>
+		.box {
+			width:0;
+			height: 40px;
+			background: #333;
+			color:#fff;
+		}
+	</style>
+</head>
+<body>
+<button id="start">시작</button>
+<button id="stop">중지</button>
+
+<div id="use" style="border: 1px solid; 
+ width: 100px; height: 100px;
+ background: #9c9;">안녕 하보니</div>
+</body>
+</html>

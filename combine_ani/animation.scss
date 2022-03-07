@@ -1,0 +1,35 @@
+.combine_ani {
+  transition: all 0.8s;
+}
+
+.fadeDown {
+  transform: translateY(-150px);
+  opacity: 0;
+  &.animated {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.fadeRight {
+  transform: translateX(150px);
+  opacity: 0;
+  &.animated {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.fadeLeft {
+  transform: translateX(-150px);
+  opacity: 0;
+  &.animated {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.width100p {
+  width: 0;
+  &.animated {
+    width: 100%;
+    transform: translateX(0) !important;
+  }
+}

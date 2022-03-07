@@ -1,0 +1,14 @@
+  <script>
+    function copyToClipboard(val) {
+      var t = document.createElement("textarea");
+      document.body.appendChild(t);
+      t.value = val;
+      t.select();
+      document.execCommand('copy');
+      document.body.removeChild(t);
+    }
+    $('#urlCopyBtn').click(function() {
+      copyToClipboard('http://kko.to/tHrWtgNDT');
+      alert('주소가 복사되었습니다');
+    });
+  </script>

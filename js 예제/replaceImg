@@ -1,0 +1,23 @@
+  function imgReplace(event,item){
+    var imgSrc = item.attr("src");
+    var eventType = event.type;
+    var scrPos = $(window).scrollTop();
+    if(eventType == "scroll"){
+      console.log(imgSrc)
+      console.log(scrPos)
+      if(scrPos >= 200){
+        item.attr("src",imgSrc.replace("_off","_on"))
+      }else{
+        item.attr("src",imgSrc.replace("_on","_off"))
+      }    
+    }else if(eventType == "mouseenter" ){
+      item.attr("src",imgSrc.replace("_off","_on"))
+    }else{
+      if(scrPos <= 100){
+        item.attr("src",imgSrc.replace("_on","_off"))
+      }
+    }
+  }
+
+
+imgReplace(event,header.find("#logo img"));

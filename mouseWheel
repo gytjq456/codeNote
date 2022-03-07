@@ -1,0 +1,103 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+
+var current_idx = 0;
+var mainContents = $("#mainContents");
+var scrPos = $(window).scrollTop();
+var elm = mainContents.children("section");
+var animating = false;
+var clickFlag = false;
+  if(scrPos <= 100){
+    slideMenu.find("li:eq(0)").addClass("on");
+  }
+  $(window).scroll(function(event) {
+    scrPos = $(window).scrollTop() + 55;
+
+    elm.each(function(idx, item){
+      var $target = elm.eq(idx), 
+          i = $target.index(), 
+          targetTop = $target.offset().top - 110;
+      console.log(targetTop)
+      console.log("scrPos = "+ scrPos)
+      if (targetTop <= scrPos) { 
+        slideMenu.find("li").removeClass("on");
+        slideMenu.find("li:eq(" + (idx) + ")").addClass("on");
+        current_idx = idx
+      }
+      if(current_idx == elm.length-1){
+        slideMenu.stop().fadeOut();
+      }else{
+        slideMenu.stop().fadeIn();
+      }
+    });
+  });
+  
+
+var screen_h = 0; // 화면 높이
+  var page_h = 0;
+  var last_y = 0; // 스크롤 마지막 하단 높이
+  var y = 0;
+  var onpage_on = true;
+  var isScroll = false;
+  init();
+  elm.on('scroll touchmove mousewheel', function (event) {
+    var idx = $(this).index();
+    targetTop = $(this).offset().top;
+
+    if (last_y > $("html").scrollTop() && !onpage_on) {
+      //원페이지 스크롤 진입
+      onpage_on = true;
+      isScroll = false;
+    }
+    if (!onpage_on) return;
+    
+    //스크롤 이벤트 막기
+    event.preventDefault();
+    event.stopPropagation();
+    if (isScroll) return;
+    isScroll = true;
+    
+    // 마우스 휠 방향
+    var direction = event.originalEvent.wheelDelta;
+    var y = 0;
+    if (direction > 0) {
+      // 위로
+      idx--
+      y = page_h * idx;
+    }else{
+      // 아래로
+      idx++;
+
+      y = page_h * idx;
+    }
+
+    $('html, body').stop().animate({
+      scrollTop: y - 55
+    }, 800, function () {
+      isScroll = false;
+    });
+
+  });
+  
+  
+  
+  
+    $(window).resize(function () {
+    // 반응형
+    setHeight();
+  });
+
+  function init() {
+    setHeight();
+    total_section = mainContents.children("section").length;
+    last_y = page_h * total_section;
+  }
+
+  function setHeight() {
+    // 높이 설정
+    screen_h = document.body.clientHeight;
+    page_h = screen_h;
+    mainContents.children("section").height(page_h);
+  }
+  
+  
+  

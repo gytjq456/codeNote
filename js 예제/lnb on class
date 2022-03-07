@@ -1,0 +1,32 @@
+      var depth2 = $("#gnb > li:eq("+(<%=num%>-1)+") .depth2").clone();
+      $lnb = $("#lnb");
+      console.log(depth2);
+      $lnb.children("div").append(depth2);
+
+
+      function getParameter(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+          results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+      }
+      var s_cate = getParameter("s_cate").toUpperCase();
+      if(s_cate){
+        $lnb.find("li").each(function(index,item){
+          var menu = $(this).text();
+          console.log(menu)
+          if(menu.indexOf(s_cate) >= 0 ){
+            $(this).addClass("on");
+          }
+        });
+      }else{
+        $lnb.find("li").each(function(index,item){
+          var hrefVal = $(this).find("a").attr("href");
+          var url = location.href;
+          var urlSplit = url.split(".asp")[0].split("/");
+          var currentMenu = urlSplit[urlSplit.length - 1];
+          if(hrefVal.indexOf(currentMenu) >= 0){
+            $(this).addClass("on");
+          }
+        })
+      }

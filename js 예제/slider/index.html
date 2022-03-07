@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+		integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+		integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<style>
+	* {
+		padding: 0;
+		margin: 0;
+	}
+
+	ul,
+	li {
+		list-style: none;
+	}
+
+	.slider {
+		max-width: 1600px;
+		margin: 0 auto;
+		overflow: hidden;
+	}
+
+	ul {
+		display: flex;
+		align-items: flex-end;
+		position: relative;
+	}
+
+	img {
+		max-width: 100%;
+	}
+
+	li {
+		width: 18.75%;
+		flex-shrink: 0;
+		min-height: 604px;
+		margin-right: 2%;
+		position: relative;
+		transition: all 0.5s;
+		display: flex;
+		align-items: flex-end;
+	}
+
+	li:last-child {
+		margin-right: 0;
+	}
+
+	li.onPrev {
+		margin-right: 0;
+	}
+
+	li.on {
+		width: 34.375%;
+		margin: 0 3.6875%;
+	}
+
+	p {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		font-size: 30px;
+		color: #fff;
+		text-align: center;
+		width: 100%;
+	}
+</style>
+
+<body>
+
+	<div class="slider">
+		<ul>
+			<li>
+				<div class="img"><img src="/test.jpg" alt=""></div>
+				<p>1</p>
+			</li>
+			<li class="onPrev">
+				<div class="img"><img src="/test.jpg" alt=""></div>
+				<p>2</p>
+			</li>
+			<li class="on">
+				<div class="img"><img src="/test.jpg" alt=""></div>
+				<p>3</p>
+			</li>
+			<li>
+				<div class="img"><img src="/test.jpg" alt=""></div>
+				<p>4</p>
+			</li>
+			<li>
+				<div class="img"><img src="/test.jpg" alt=""></div>
+				<p>5</p>
+			</li>
+			<li>
+				<div class="img"><img src="/test.jpg" alt=""></div>
+				<p>6</p>
+			</li>
+		</ul>
+	</div>
+
+	<div class="btns">
+		<button class="prev-btn">prev</button>
+		<button class="next-btn">next</button>
+	</div>
+
+	<script>
+		let idx = 0;
+		const slider = $(".slider");
+		const item = slider.find("li")
+		const itemFirstClone = item.eq(0).clone();
+		const itemLastClone = item.last().clone();
+		let itemWidth;
+		let itemMargin;
+		let slideFlag = false;
+		init()
+
+		$(".btns button").on("click", function (e) {
+			const className = e.currentTarget.className
+			itemWidth = slider.find(".onPrev").width();
+			itemMargin = parseInt(slider.find(".on").css("margin-right")) / 2;
+			if (!slideFlag) {
+				slideFlag = true;
+				slideFn(className)
+			}
+		})
+
+		setInterval(() => {
+			$(".next-btn").click();
+		}, 5000);
+
+		function init() {
+			slider.find("ul").css({
+				left: 0
+			})
+		}
+
+		function slideFn(className) {
+			item.removeClass("on")
+			item.removeClass("onPrev")
+			switch (className) {
+				case "next-btn":
+					slider.find("ul").stop().animate({
+						left: ((itemWidth + itemMargin) * -1)
+					}, 400, function () {
+						let currentItem = slider.find("li").first();
+						slider.find("ul").append(currentItem)
+						slider.find("ul").css({
+							left: 0
+						})
+						slideFlag = false;
+					})
+					slider.find("li").eq(2).addClass("onPrev")
+					slider.find("li").eq(3).addClass("on")
+					break;
+				case "prev-btn":
+					let lastItem = slider.find("li").last();
+					slider.find("ul").prepend(lastItem)
+					slider.find("ul").css({
+						left: ((itemWidth + itemMargin) * -1)
+					})
+					slider.find("ul").stop().animate({
+						left: 0
+					}, 400, function () {
+						slideFlag = false;
+					})
+					slider.find("li").eq(1).addClass("onPrev")
+					slider.find("li").eq(2).addClass("on")
+					break;
+			}
+		}
+	</script>
+</body>
+
+</html>

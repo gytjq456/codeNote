@@ -1,0 +1,60 @@
+<div class="frame">
+  <div>
+    <div class="circle-big">
+      <div class="num">01</div>
+      <svg>
+        <circle class="bg" cx="36" cy="36" r="30"></circle>
+        <circle class="progress" cx="36" cy="36" r="30"></circle>
+      </svg>
+    </div>
+  </div>
+</div>
+
+
+.circle-big {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  margin: 0 auto;
+  .num {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: $font-size20;
+    font-family: $font-poppins;
+    font-weight: 600;
+  }
+}
+
+.circle-big svg {
+  width: 72px;
+  height: 72px;
+}
+
+.circle-big .bg {
+  fill: none;
+  stroke-width: 3px;
+  stroke: rgba(255, 255, 255, 0.2);
+}
+
+.circle-big .progress {
+  fill: none;
+  stroke-width: 3px;
+  stroke: #fff;
+  stroke-linecap: round;
+  stroke-dasharray: 326.56;
+  stroke-dashoffset: 60;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  animation: big 5s ease-in-out;
+}
+
+@keyframes big {
+  from {
+    stroke-dashoffset: 326.56;
+  }
+  to {
+    stroke-dashoffset: 60;
+  }
+}

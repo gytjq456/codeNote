@@ -1,0 +1,63 @@
+@media print {
+  #lnb,
+  #sv,
+  #all_menu,
+  footer,
+  header {
+    display: none;
+  }
+  .hd_height,
+  #subContents {
+    padding: 0 !important;
+  }
+  html,
+  body {
+    padding: 20px;
+    // width: 210mm;
+    height: 297mm;
+    width: 100% !important;
+    // height: 100% !important;
+    background: #fff;
+    * {
+      -webkit-print-color-adjust: exact !important;
+    }
+  }
+
+  #education_view {
+    .pdInfo {
+      .pdInfo .img {
+      }
+      .txtBox {
+        .btn_group {
+          li {
+            a {
+              background: none !important;
+              svg {
+                .cls-3,
+                .cls-1 {
+                  stroke: #515050 !important;
+                }
+              }
+            }
+            &:last-child {
+              a {
+                background: $color-main !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .printPage {
+    padding: 20px !important;
+    margin: 0 !important;
+    border: initial;
+    border-radius: initial;
+    width: 100% !important;
+    min-height: initial;
+    box-shadow: initial;
+    background: initial;
+    page-break-after: always;
+  }
+}

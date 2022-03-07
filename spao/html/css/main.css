@@ -1,0 +1,45 @@
+#main {  position:relative;}
+
+
+/* visual slide */
+.slick-arrow { border:none; background:none; font-size:60px;}
+#mainVisual .slick-arrow {  position:absolute; z-index:9998; top:50%;  color:#fff;
+transform:translateY(-50%);
+}
+#mainVisual .slick-next { right:96px;}
+#mainVisual .slick-prev { left:96px;}
+#mainVisual .slick-dots { position:absolute; text-align:center; width:100%; bottom:32px; display: flex; justify-content: center;}
+#mainVisual .slick-dots li { margin:0 4px; }
+#mainVisual .slick-dots button { border-radius:50%; border:none; width:13px; height:13px; font-size:0; background:#a5a5a5;}
+#mainVisual .slick-dots .slick-active button { background:#1a1a1a;}
+
+/* mainContents */
+.conWrap { padding:86px 0;}
+
+/* 제품 whatNew slideList */
+.slideList { margin-top:56px;}
+.slideList article { margin:0 10px;}
+.slideList article .img { transition:all 0.5s;}
+.slideList article .img:hover{ opacity:0.8;}
+.slideList .productInfo {}
+.slideList .productInfo > p { margin:20px 0; }
+.slideList .productInfo .tit { font-size:18px;}
+.slideList .productInfo .price { font-size:32px; font-weight: 700;}
+.slideList .productInfo .price .cost  {  color:#adadad; text-decoration: line-through;}
+.slideList .productInfo .price .cost,
+.slideList .productInfo .price .discount { font-size:22px; font-weight:400;}
+.slideList .productInfo .reviewLen { font-size:14px; color:#adadad;}
+.slideList .slick-arrow { position:absolute;  top:50%; color:#a9a9a9; opacity:0.5;}
+.slideList .slick-arrow:hover { opacity: 1;}
+.slideList .slick-prev { left:-68px; }
+.slideList .slick-next { right:-68px; }
+.slideList.white { color:#fff;}
+
+/* product category  */
+#productCate {}
+#productCate ul { display:flex; justify-content: center;}
+#productCate ul li { margin:0 20px;}
+#productCate ul li a { font-size:22px;}
+
+#mainContents #stylePick { background:#e94820;}
+

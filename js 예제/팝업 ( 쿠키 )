@@ -1,0 +1,42 @@
+	$(function(){
+		if(document.cookie != ""){
+			var cookie = document.cookie;
+			var cookieObj = cookieToJson(cookie);
+			var userId = cookieObj.userId;
+			if(userId != undefined){
+				//$("#rem").prop("checked", true);
+//				$("#id").val(userId);
+				$("#pop").hide();
+			}else{
+				
+			}
+
+		}
+
+		$("#rem").on("change",function(){
+			var exdate = new Date();
+			if($("#rem").prop("checked")){
+				console.log(exdate.getDate() + 7)
+				exdate.setDate(exdate.getDate() + 7);
+				document.cookie = "userId=expires="+exdate.toString();
+				$("#pop").hide();
+			}else{
+				//체크 해제
+				/*
+				exdate.setDate(exdate.getDate()-1);
+				document.cookie = "userId=expires="+exdate.toString();
+				*/
+			}
+		})
+	});
+
+	function cookieToJson(cookie){
+		var cookieJson = [];
+		var cookies = cookie.split("; ");
+		for(var i=0; i<cookies.length; i++){
+			var entry = cookies[i].split("=");
+			cookieJson[entry[0]] = entry[1];
+		}
+
+		return cookieJson;
+	}

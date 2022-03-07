@@ -1,0 +1,14 @@
+		<script>
+			var mql = window.matchMedia("(orientation: portrait)");
+				hv();
+				$(window).resize(function(){
+					hv()
+				})
+				function hv() {
+					if (mql.matches) {
+						$("meta[name=viewport]").attr("content", "width=768, maximum-scale=2.0, user-scalable=yes, target-densitydpi=medium-dpi");
+					} else {
+						$("meta[name=viewport]").attr("content", "width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0, user-scalable=yes, target-densitydpi=medium-dpi");
+					}
+				}
+		</script>

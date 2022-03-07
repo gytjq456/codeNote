@@ -1,0 +1,7 @@
+  AOS.init({
+    //offset: 1100,
+    offset: (window.innerHeight  * 1.3),
+  });
+  
+  
+  https://github.com/michalsnik/aos

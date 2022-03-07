@@ -1,0 +1,89 @@
+function detectBrowser () {
+	var agent = navigator.userAgent.toLowerCase(); 
+	var browser; 
+	
+	if ( (agent.indexOf('msie') > -1) || (agent.indexOf('trident') > -1) || (agent.indexOf('edge') > -1) ) { 
+		browser = 'ie'
+	}else if(agent.indexOf('firefox') > -1) { 
+		browser = 'firefox' 
+	}else if(agent.indexOf('opr') > -1) { 
+		browser = 'opera' 
+	}else if(agent.indexOf('chrome') > -1) { 
+		browser = 'chrome' 
+	}else if(agent.indexOf('safari') > -1) { 
+		browser = 'safari'
+	}
+
+	return browser;
+}
+
+
+/* IE 버전체크 */ 
+function ieVersionCheck () {
+	var word; 
+	var version = "N/A"; 
+	var agent = navigator.userAgent.toLowerCase(); 
+	var name = navigator.appName; 
+
+	// IE old version ( IE 10 or Lower ) 
+	if ( name == "Microsoft Internet Explorer" ) word = "msie "; 
+	else { 
+		// IE 11 
+		if ( agent.search("trident") > -1 ) word = "trident/.*rv:"; 
+		// Microsoft Edge  
+		else if ( agent.search("edge/") > -1 ) word = "edge/"; 
+	} 
+	var reg = new RegExp( word + "([0-9]{1,})(\\.{0,}[0-9]{0,1})" ); 
+	if (  reg.exec( agent ) != null  ) version = RegExp.$1 + RegExp.$2; 
+	
+	if ( version !="NaN" && version < 12 ) {
+		return parseInt (version)
+	}else {
+		return false;
+	}
+}
+
+/* OS 체크 */ 
+function detectOS(){
+    var agent = navigator.userAgent.toLowerCase(); 
+	var browser; 
+ 
+    if ( agent.indexOf('android') > -1) {
+        return "android";
+    } else if ( agent.indexOf("iphone") > -1|| agent.indexOf("ipad") > -1|| agent.indexOf("ipod") > -1 ) {
+        return "ios";
+    } else {
+        return "other";
+    }
+
+	return browser;
+}
+
+/* 모바일/PC 체크 */ 
+function isMobile(){
+	var UserAgent = navigator.userAgent;
+	if (UserAgent.match(/iPhone|iPad|Android|Windows CE|BlackBerry|Symbian|Windows Phone|webOS|Opera Mini|Opera Mobi|POLARIS|IEMobile|lgtelecom|nokia|SonyEricsson/i) != null || UserAgent.match(/LG|SAMSUNG|Samsung/) != null)
+	{
+		return true;
+	}else{
+		return false;
+	}
+}
+
+$(document).ready(function(){
+
+/*
+	// gnb복사 lnb 붙여넣기
+	for (var i = 1; i < 5; i++) {
+		$(".gnb .menu"+i).clone().appendTo("#lnb .depth2.sm"+ i);
+	};	
+*/
+
+});
+$(function(){
+	/* *********************** 브라우저 체크 및 기기체크 ************************ */
+	if ( isMobile() ) {
+		$("body").addClass("is-mobile").addClass(detectOS()+"-os");
+	}else {
+		$("body").addClass("is-pc").addClass(detectBrowser()+"-browser");
+  }

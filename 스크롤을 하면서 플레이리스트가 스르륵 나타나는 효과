@@ -1,0 +1,38 @@
+스크롤을 하면서 플레이리스트가 스르륵 나타나는 효과를 만들어봅시다.
+
+1.코드를 실행하면 플레이 리스트가 서서히 나타난다.
+2.스트롤을 내려서 플레이리스트 높이의 반 정도를 내려가면 그 다음 플레이 리스트가 서서히 나타난다.
+
+function scrollHandler(){
+  var windowBottom = $(window).scrollTop() + $(window).height();
+  var playlists = $(".playlist");
+  for(var i = 0 ; i < playlists.length; i++){
+    var playlist = $(playlists[i]);
+    var playlistHalf = playlist.position().top + playlist.outerHeight() / 2;
+    
+    if(playlistHalf < windowBottom){
+      playlist.animate({
+        "opacity" : "1"
+      },1000)
+    }
+  }
+
+  
+  if(windowBottom == $(document).height()){
+    $(".to-top-btn").fadeIn(1000);
+    $(".to-top-btn").on("click",function(){
+      $("html, body").animate({
+        scrollTop: 0 
+      })
+    })    
+  }else{
+    $(".to-top-btn").fadeOut(1000);
+  }
+  
+
+}
+
+
+$(window).on("scroll", scrollHandler);
+
+scrollHandler();

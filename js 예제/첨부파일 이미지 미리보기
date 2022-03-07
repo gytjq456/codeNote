@@ -1,0 +1,34 @@
+<script>
+$(document).ready(function() {
+	var fileTarget = $('.filebox .upload-hidden');
+	var sel_file;
+	fileTarget.on('change', function(e) {
+		var idx = $(this).closest("li").index() + 1;
+		if (window.FileReader) {
+			var filename = $(this)[0].files[0].name;
+		} else {
+			var filename = $(this).val().split('/').pop().split('\\').pop();
+		}
+
+		$(this).siblings('.upload-name').val(filename);
+
+
+		var files = e.target.files;
+		var filesArr = Array.prototype.slice.call(files);
+		filesArr.forEach(function(f) {
+			if (!f.type.match("image.*")) {
+				alert("확장자는 이미지 확장자만 가능합니다.");
+				return;
+			}
+
+			sel_file = f;
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				console.log(e.target.result);
+				$(".fileImg" + idx).find("img").attr("src", e.target.result)
+			}
+			reader.readAsDataURL(f)
+		});
+	});
+});
+</script>

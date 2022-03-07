@@ -1,0 +1,34 @@
+{
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "~/../"
+    },
+    // {
+    //   "format": "compressed",
+    //   "extensionName": ".min.css",
+    //   "savePath": "~/../"
+    // }
+  ],
+  "liveSassCompile.settings.generateMap": false,
+  "liveSassCompile.settings.includeItems": [ 
+    // 경로에 있는 .scss파일만 컴파일 
+    "/css/scss/ *.scss" 
+  ] 
+}
+
+
+SASS(SCSS) 시작하기 - VS CODE설치 및 셋팅
+https://mahyuna.tistory.com/4
+
+---------------------------------------------------------------------------------------------------------------
+
+sass for
+@for $i from 1 through 3 {
+  &:nth-child(#{$i}){
+    .bg {
+      background: url("/img/sub/history_img0#{$i}.jpg");
+    }
+  }
+} 

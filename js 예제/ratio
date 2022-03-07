@@ -1,0 +1,16 @@
+<script async>
+	var value = window.devicePixelRatio
+	deviceVal(value)
+	$(window).resize(function(){
+		value = window.devicePixelRatio
+		deviceVal(value)
+	})
+
+	function deviceVal(){
+		if (value == 1.25) {
+			$("body").addClass("ratio125")
+		}else{
+			$("body").removeClass("ratio125")
+		}
+	}
+</script>

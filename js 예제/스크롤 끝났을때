@@ -1,0 +1,24 @@
+		clearTimeout($.data(this, 'scrollTimer'));
+		$.data(this, 'scrollTimer', setTimeout(function () {
+			hdSlide()
+		}, 200));
+
+
+$.fn.scrollEnd = function(callback, timeout) {
+    $(this).scroll(function(){
+      var $this = $(this);
+      if ($this.data('scrollTimeout')) {
+        clearTimeout($this.data('scrollTimeout'));
+      }
+ 
+      $this.data('scrollTimeout', setTimeout(callback,timeout));
+    }); // 스크롤종료시를 감지하는 스크립트
+};
+ 
+ 
+$(window).scrollEnd(function(){
+    // Todo Script
+}, 2000);
+
+
+출처: https://slyeee.tistory.com/2 [Slyeee]

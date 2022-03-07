@@ -1,0 +1,89 @@
+<script>
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+var portfolio_pop = $("#portfolio_pop");
+var videoList = $(".videoList");
+var player;
+var yid;
+
+function onYouTubeIframeAPIReady() {
+	player = new YT.Player('player', {
+		playerVars: {
+			'controls': 1, //플레이어 컨드롤러 표시여부
+			'rel': 0, //연관동영상 표시여부
+			'playsinline': 1, //ios환경에서 전체화면으로 재생하지 않게하는 옵션
+			'autoplay': 0,
+			'modestbranding': 1,
+			'loop': 0,
+			'mute': 0,
+			'showsearch': 0,
+			'showinfo': 0,
+			'modestbranding': 0,
+			//'playlist': 'fO4F2Idpaw4'
+		},
+
+		events: {
+			'onReady': onPlayerReady,
+			'onStateChange': onPlayerStateChange
+		}
+	});
+
+}
+
+
+// function fnChangeVideoId(videoId) {
+// 	player.loadVideoById(videoId);
+// }
+
+function onPlayerReady(event) {
+
+}
+
+var done = false;
+
+function onPlayerStateChange(event) {
+	event.target.playVideo();
+	if (event.data === 0) {
+		//여기에 재생이 끝났을 때 실행시킬 스크립트 작성
+	}
+}
+
+function stopVideo() {
+	player.stopVideo();
+}
+
+
+portfolio_pop.find(".closeBtn").on("click", function() {
+	portfolio_pop.stop().fadeOut(function() {
+		$("#player").stop().hide()
+		player.stopVideo();
+		yid = "";
+		player.loadVideoById(yid);
+		portfolio_pop.find(".thum img").show();
+		portfolio_pop.find(".playIcon").show();
+	});
+
+})
+
+
+
+videoList.find("> ul li a").on("click", function(e) {
+	e.preventDefault();
+	var id = $(this).data("id")
+	var title = $(this).data("title");
+	yid = id
+	portfolio_pop.stop().fadeIn();
+	portfolio_pop.find(".thum img").attr("src", "https://img.youtube.com/vi/" + id + "/maxresdefault.jpg")
+	portfolio_pop.find(".tit").text(title)
+})
+
+portfolio_pop.find("a").on("click", function(e) {
+	e.preventDefault();
+	portfolio_pop.find(".thum img").stop().fadeOut(800);
+	$("#player").stop().fadeIn();
+	player.loadVideoById(yid);
+	portfolio_pop.find(".playIcon").hide();
+})
+</script>

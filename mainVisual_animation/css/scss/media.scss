@@ -1,0 +1,21 @@
+@import "inc";
+
+@mixin mobile {
+    @media screen and (max-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: $breakpoint-desktop) {
+    @content;
+  }
+}
+
+@include tablet() {
+  html,body, table, input, textarea { font-size:14px;}
+}
+
+@include mobile {
+  
+}

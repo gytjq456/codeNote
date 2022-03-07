@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="main.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+  <script>
+    $(function () {
+      var leftItem = document.getElementById('scrollWrap');
+
+      var throttle = function (type, name, obj) {
+        var obj = obj || window;
+        var running = false;
+        var func = function () {
+          if (running) { return; }
+          running = true;
+          requestAnimationFrame(function () {
+            obj.dispatchEvent(new CustomEvent(name));
+            running = false;
+          });
+        };
+        obj.addEventListener(type, func);
+      };
+
+      throttle("scroll", "optimizedScroll");
+
+      window.addEventListener("optimizedScroll", function () {
+        console.log(window.pageYOffset)
+        leftItem.style.transform = "translateX(-" + window.pageYOffset +"px)";
+      })
+    })
+  </script>
+</head>
+
+<body>
+  <div id="mainContents">
+    <section>
+      페이지1
+    </section>
+    <section>
+      페이지2
+    </section>
+    <section>
+      페이지3
+    </section>
+  </div>
+  <div class="scrollWrap" id="scrollWrap">
+    <p>test test test test test test test test test test test test </p>
+  </div>
+</body>
+
+</html>

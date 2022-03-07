@@ -1,0 +1,13 @@
+	function gcd(a, b) {
+		return (b == 0) ? a : gcd(b, a % b);
+	}
+	var w = screen.width;
+	var h = screen.height;
+	var r = gcd(w, h);
+	var x = w / r;
+	var y = h / r
+	console.log("x = " + w / r);
+	console.log("h = " + h / r);
+	if (x == 8 && y == 5) {
+		$("body").addClass("noteBook");
+	}
