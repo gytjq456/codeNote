@@ -1,0 +1,102 @@
+.privacy_new * {
+  line-height: 1.6;
+}
+.privacy_new {
+  font-size: 14px;
+}
+.privacy_new .sec_tit {
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  font-size: 22px;
+  font-weight: 700;
+  color: #333;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  color: #df2027;
+}
+
+.privacy_new dl dt {
+  font-size: 18px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.privacy_new article:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+.privacy_new section:not(:last-child) {
+  margin-bottom: 50px;
+}
+
+.privacy_new dl dd {
+  font-size: 15px;
+}
+
+.privacy_new .ss_txt,
+.privacy_new .s_txt,
+.privacy_new .m_txt,
+.privacy_new .b_txt {
+  padding: 0 15px;
+}
+
+.privacy_new .m_txt p {
+  margin: 3px 0;
+}
+
+.privacy_new .s_tit {
+  margin-bottom: 10px;
+}
+.privacy_new ul.s_txt {
+  margin: 10px 0;
+}
+.privacy_new ul.s_txt .tit {
+}
+
+.privacy_new ul.s_txt .txt {
+  padding: 0 15px;
+  color: #999;
+  margin-top: 4px;
+}
+.privacy_new ul.s_txt.type2 li {
+  color: #999;
+}
+.privacy_new ul.s_txt.type2 li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.privacy_new ul.s_txt .txt > div {
+  margin: 3px 0;
+}
+
+.privacy_new ul > li:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.privacy_new .s_tit {
+  font-size: 16px;
+  color: #333;
+}
+.privacy_new .addendum {
+  text-align: center;
+}
+
+@media (max-width: 639px) {
+  .privacy_new dl dt br {
+    display: none;
+  }
+  .privacy_new dl dt {
+    font-size: 16px;
+  }
+  .privacy_new dl dd {
+    font-size: 14px;
+  }
+
+  .privacy_new .ss_txt,
+  .privacy_new .s_txt,
+  .privacy_new .m_txt,
+  .privacy_new .b_txt {
+    padding: 0 5px;
+  }
+}
