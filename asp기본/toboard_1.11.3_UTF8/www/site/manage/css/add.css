@@ -1,0 +1,11 @@
+.inlineBlock{
+	position:relative;
+	display:inline-block;
+	vertical-align:middle;
+}
+
+body, select, input, a, button{
+	font-family:'Apple SD Gothic Neo', 'Nanum Gothic';
+	font-size:12px;
+	line-height:1.6em;
+}

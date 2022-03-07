@@ -1,0 +1,298 @@
+
+
+
+/* 이력서 설정 */
+CREATE TABLE dbo.tbl_resume_config (
+    idx             INT IDENTITY(1,1) NOT NULL, 
+    r_idx           INT DEFAULT ((0)), 
+    r_info          CHAR(1) DEFAULT ('N'), 
+    r_education     CHAR(1), 
+    r_personal      CHAR(1), 
+    r_army          CHAR(1), 
+    r_job           CHAR(1), 
+    r_disabled      CHAR(1), 
+    r_lower         CHAR(1), 
+    r_body          CHAR(1), 
+    r_family        CHAR(1), 
+    r_license       CHAR(1), 
+    r_oa            CHAR(1), 
+    r_language      CHAR(1), 
+    r_portfolio     CHAR(1), 
+    r_skill         CHAR(1), 
+    r_career        CHAR(1), 
+    r_experience    CHAR(1), 
+    r_project       CHAR(1), 
+    r_prime         CHAR(1), 
+    r_training      CHAR(1), 
+    r_complete      CHAR(1), 
+    r_swot          CHAR(1), 
+    r_strategy      CHAR(1) DEFAULT ('N'), 
+    r_etc           CHAR(1), 
+    r_introduction  CHAR(1), 
+    r_add           CHAR(1), 
+    r_intro_cnt     INT DEFAULT ((0)), 
+    r_intro_nm1     NVARCHAR(100), 
+    r_intro_nm2     NVARCHAR(100), 
+    r_intro_nm3     NVARCHAR(100), 
+    r_intro_nm4     NVARCHAR(100), 
+    r_intro_nm5     NVARCHAR(100), 
+    r_add_cnt       INT DEFAULT ((0)), 
+    r_add_nm1       NVARCHAR(100), 
+    r_add_nm2       NVARCHAR(100), 
+    r_add_nm3       NVARCHAR(100), 
+    r_add_nm4       NVARCHAR(100), 
+    r_add_nm5       NVARCHAR(100)
+) ON [PRIMARY]
+
+EXEC sp_addextendedproperty N'MS_Description', N'이력서 설정', N'schema', N'dbo', N'table', N'tbl_resume_config';
+
+
+
+/* 이력서 (기본항목) */
+CREATE TABLE dbo.tbl_resume (
+    idx       INT IDENTITY(1,1) NOT NULL, 
+    resumeid  INT DEFAULT ((1000)), 
+    r_idx     INT DEFAULT ((0)), 
+    mid       NVARCHAR(50), 
+    mpw       NVARCHAR(255), 
+    r_title   NVARCHAR(200), 
+    r_sort    NVARCHAR(50), 
+    r_pay     NVARCHAR(50), 
+    r_name    NVARCHAR(50), 
+    r_birth1  NVARCHAR(4), 
+    r_birth2  NVARCHAR(2), 
+    r_birth3  NVARCHAR(2), 
+    r_hp      NVARCHAR(50), 
+    r_addr    NVARCHAR(300), 
+    r_email   NVARCHAR(100), 
+    r_file1   NVARCHAR(50), 
+    state     NCHAR(1) DEFAULT ((0)), 
+    r_file    NVARCHAR(50), 
+    regdate   DATETIME DEFAULT (getdate()),
+   PRIMARY KEY CLUSTERED (idx ASC) ON [PRIMARY]
+) ON [PRIMARY]
+
+EXEC sp_addextendedproperty N'MS_Description', N'이력서', N'schema', N'dbo', N'table', N'tbl_resume';
+
+
+
+/* 이력서 (경력/수상) */
+CREATE TABLE dbo.tbl_resume_career (
+    idx               INT IDENTITY(1,1) NOT NULL, 
+    resumeid          INT DEFAULT ((1000)), 
+    r_idx             INT DEFAULT ((0)), 
+    mid               NVARCHAR(50), 
+    mpw               NVARCHAR(255), 
+    rc_title          NVARCHAR(50) DEFAULT (N'portfolio'), 
+    rc_port1          NVARCHAR(300), 
+    rc_port2          NVARCHAR(50), 
+    rc_skill1         NVARCHAR(100), 
+    rc_skill2         NVARCHAR(49), 
+    rc_skill3         NVARCHAR(MAX), 
+    rc_career_sdate   NVARCHAR(100), 
+    rc_career_edate   NVARCHAR(100), 
+    rc_career_org     NVARCHAR(200), 
+    rc_career_detail  NVARCHAR(MAX), 
+    rc_soc_sdate      NVARCHAR(100), 
+    rc_soc_edate      NVARCHAR(100), 
+    rc_soc_org        NVARCHAR(200), 
+    rc_soc_detail     NVARCHAR(MAX), 
+    rc_proj_sdate     NVARCHAR(100), 
+    rc_proj_edate     NVARCHAR(100), 
+    rc_proj_name      NVARCHAR(200), 
+    rc_proj_detail    NVARCHAR(MAX), 
+    rc_pz_name        NVARCHAR(300), 
+    rc_pz_org         NVARCHAR(300), 
+    rc_pz_date        NVARCHAR(50), 
+    rc_pz_sdate       NVARCHAR(100), 
+    rc_pz_edate       NVARCHAR(100), 
+    state             NCHAR(1) DEFAULT ((0))
+) ON [PRIMARY]
+
+EXEC sp_addextendedproperty N'MS_Description', N'이력서 (경력/수상)', N'schema', N'dbo', N'table', N'tbl_resume_career';
+
+
+/* 이력서 (가족관계) */
+CREATE TABLE dbo.tbl_resume_family (
+    idx       INT IDENTITY(1,1) NOT NULL, 
+    resumeid  INT DEFAULT ((1000)), 
+    r_idx     INT DEFAULT ((0)), 
+    mid       NVARCHAR(50), 
+    mpw       NVARCHAR(255), 
+    rf_f1     NVARCHAR(50), 
+    rf_f2     NVARCHAR(50), 
+    rf_rela   NVARCHAR(50), 
+    rf_name   NVARCHAR(50), 
+    rf_age    NVARCHAR(50), 
+    rf_job    NVARCHAR(50), 
+    rf_tog    NVARCHAR(50), 
+    state     NCHAR(1) DEFAULT ((0)),
+   PRIMARY KEY CLUSTERED (idx ASC) ON [PRIMARY]
+) ON [PRIMARY]
+
+EXEC sp_addextendedproperty N'MS_Description', N'이력서 (가족관계)', N'schema', N'dbo', N'table', N'tbl_resume_family';
+
+
+/* 이력서 (자기소개/기타) */
+CREATE TABLE dbo.tbl_resume_intro (
+    idx               INT IDENTITY(1,1) NOT NULL, 
+    resumeid          INT DEFAULT ((1000)), 
+    r_idx             INT, 
+    mid               NVARCHAR(50), 
+    mpw               NVARCHAR(255), 
+    ri_title          NVARCHAR(50) DEFAULT (N'url'), 
+    ri_url            NVARCHAR(300), 
+    ri_file           NVARCHAR(50), 
+    ri_add_title      NVARCHAR(MAX), 
+    ri_add_content    NVARCHAR(MAX), 
+    ri_intro_title    NVARCHAR(MAX), 
+    ri_intro_content  NVARCHAR(MAX), 
+    state             NCHAR(1) DEFAULT ((0)), 
+   PRIMARY KEY CLUSTERED (idx ASC) ON [PRIMARY]
+) ON [PRIMARY]
+
+EXEC sp_addextendedproperty N'MS_Description', N'이력서 (자기소개/기타)', N'schema', N'dbo', N'table', N'tbl_resume_intro';
+
+
+
+/* 이력서 (어학) */
+CREATE TABLE dbo.tbl_resume_language (
+    idx       INT IDENTITY(1,1) NOT NULL, 
+    resumeid  INT DEFAULT ((1000)), 
+    r_idx     INT, 
+    mid       NVARCHAR(50), 
+    mpw       NVARCHAR(255), 
+    rl_lang   NVARCHAR(100), 
+    rl_test   NVARCHAR(100), 
+    rl_score  NVARCHAR(100), 
+    rl_acq    NVARCHAR(100), 
+    state     NCHAR(1) DEFAULT ((0)), 
+   PRIMARY KEY CLUSTERED (idx ASC) ON [PRIMARY]
+) ON [PRIMARY]
+
+EXEC sp_addextendedproperty N'MS_Description', N'이력서 (어학)', N'schema', N'dbo', N'table', N'tbl_resume_language';
+
+
+/* 이력서 (자격사항) */
+CREATE TABLE dbo.tbl_resume_licence (
+    idx         INT IDENTITY(1,1) NOT NULL, 
+    resumeid    INT DEFAULT ((1000)), 
+    r_idx       INT, 
+    mid         NVARCHAR(50), 
+    mpw         NVARCHAR(255), 
+    rl_licence  NVARCHAR(200), 
+    rl_org      NVARCHAR(200), 
+    rl_date     NVARCHAR(50), 
+    state       NCHAR(1) DEFAULT ((0)), 
+   PRIMARY KEY CLUSTERED (idx ASC) ON [PRIMARY]
+) ON [PRIMARY]
+
+EXEC sp_addextendedproperty N'MS_Description', N'이력서 (자격사항)', N'schema', N'dbo', N'table', N'tbl_resume_licence';
+
+
+/* 이력서 (OA능력) */
+CREATE TABLE dbo.tbl_resume_oa (
+    idx        INT IDENTITY(1,1) NOT NULL, 
+    resumeid   INT DEFAULT ((1000)), 
+    r_idx      INT, 
+    mid        NVARCHAR(50), 
+    mpw        NVARCHAR(255), 
+    rl_doc     NVARCHAR(50), 
+    rl_xls     NVARCHAR(50), 
+    rl_ppt     NVARCHAR(50), 
+    rl_search  NVARCHAR(50), 
+    state      NCHAR(1) DEFAULT ((0))
+) ON [PRIMARY]
+
+EXEC sp_addextendedproperty N'MS_Description', N'이력서 (OA능력)', N'schema', N'dbo', N'table', N'tbl_resume_oa';
+
+
+/* 이력서 (신상정보) */
+CREATE TABLE dbo.tbl_resume_profile (
+    idx           INT IDENTITY(1,1) NOT NULL, 
+    resumeid      INT DEFAULT ((1000)), 
+    r_idx         INT, 
+    mid           NVARCHAR(50), 
+    mpw           NVARCHAR(255), 
+    rp_marry      NVARCHAR(50) DEFAULT (N'N'), 
+    rp_hobby      NVARCHAR(50), 
+    rp_blood      NVARCHAR(50), 
+    rp_religion   NVARCHAR(50), 
+    rp_specialty  NVARCHAR(50), 
+    rp_army1      NVARCHAR(50), 
+    rp_army2      NVARCHAR(50), 
+    rp_army3      NVARCHAR(50), 
+    rp_bohun      NVARCHAR(50), 
+    rp_bohun_num  NVARCHAR(50), 
+    rp_dp1        NVARCHAR(50), 
+    rp_dp2        NVARCHAR(50), 
+    rp_dp_num     NVARCHAR(50), 
+    rp_li1        NVARCHAR(50), 
+    rp_li2        NVARCHAR(50), 
+    rp_li3        NVARCHAR(50), 
+    rp_height     NVARCHAR(50), 
+    rp_weight     NVARCHAR(50), 
+    rp_eye_l      NVARCHAR(50), 
+    rp_eye_r      NVARCHAR(50), 
+    rp_top        NVARCHAR(50), 
+    rp_bottom     NVARCHAR(50), 
+    rp_footsize   NVARCHAR(50), 
+    state         NCHAR(1) DEFAULT ((0)), 
+   PRIMARY KEY CLUSTERED (idx ASC) ON [PRIMARY]
+) ON [PRIMARY]
+
+EXEC sp_addextendedproperty N'MS_Description', N'이력서 (신상정보)', N'schema', N'dbo', N'table', N'tbl_resume_profile';
+
+
+
+/* 이력서 (학력사항) */
+CREATE TABLE dbo.tbl_resume_school (
+    idx              INT IDENTITY(1,1) NOT NULL, 
+    resumeid         INT DEFAULT ((1000)), 
+    r_idx            INT, 
+    mid              NVARCHAR(50), 
+    mpw              NVARCHAR(255), 
+    rs_sdate         NVARCHAR(100), 
+    rs_edate         NVARCHAR(50), 
+    rs_school        NVARCHAR(50), 
+    rs_major         NVARCHAR(50), 
+    rs_score         NVARCHAR(50), 
+    rs_major_detail  NVARCHAR(50), 
+    state            NCHAR(1) DEFAULT ((0)), 
+   PRIMARY KEY CLUSTERED (idx ASC) ON [PRIMARY]
+) ON [PRIMARY]
+
+EXEC sp_addextendedproperty N'MS_Description', N'이력서 (학력사항)', N'schema', N'dbo', N'table', N'tbl_resume_school';
+
+
+
+/* 이력서 (SWOT) */
+CREATE TABLE dbo.tbl_resume_swot (
+    idx       INT IDENTITY(1,1) NOT NULL, 
+    resumeid  INT DEFAULT ((1000)), 
+    r_idx     INT, 
+    mid       NVARCHAR(50), 
+    mpw       NVARCHAR(255), 
+    rs_s      NVARCHAR(MAX), 
+    rs_w      NVARCHAR(MAX), 
+    rs_o      NVARCHAR(MAX), 
+    rs_t      NVARCHAR(MAX), 
+    rs_so     NVARCHAR(MAX), 
+    rs_st     NVARCHAR(MAX), 
+    rs_wo     NVARCHAR(MAX), 
+    rs_wt     NVARCHAR(MAX), 
+    state     NCHAR(1) DEFAULT ((0)), 
+   PRIMARY KEY CLUSTERED (idx ASC) ON [PRIMARY]
+) ON [PRIMARY]
+
+EXEC sp_addextendedproperty N'MS_Description', N'이력서 (SWOT)', N'schema', N'dbo', N'table', N'tbl_resume_swot';
+
+
+/* 이력서 연동 키 테이블 */
+CREATE TABLE dbo.tbl_resumeid (
+    idx        INT IDENTITY(1,1) NOT NULL, 
+    resumeid1  CHAR(6), 
+    resumeid2  INT
+) ON [PRIMARY]
+
+EXEC sp_addextendedproperty N'MS_Description', N'이력서 연동 키 테이블', N'schema', N'dbo', N'table', N'tbl_resumeid';

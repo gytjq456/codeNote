@@ -1,0 +1,147 @@
+<script language=vbscript runat=server> 
+Sub Application_OnStart  
+End Sub 
+
+Sub Session_OnStart 		
+		
+	On Error Resume Next
+	
+	'봇 통계 제거
+	If InStr(Request.ServerVariables("HTTP_USER_AGENT"), "bot")=0 _
+		And InStr(Request.ServerVariables("HTTP_USER_AGENT"), "crawl")=0 _
+		And InStr(Request.ServerVariables("HTTP_USER_AGENT"), "slurp")=0 _
+		And InStr(Request.ServerVariables("HTTP_USER_AGENT"), "spider")=0 _
+		And InStr(Request.ServerVariables("HTTP_USER_AGENT"), "curl")=0 _
+		And InStr(Request.ServerVariables("HTTP_USER_AGENT"), "fetch")=0 Then
+
+		DB_SERVER = "58.230.162.205"
+		DB_NAME = "bbs2"
+		DB_ID = "bbs2"
+		DB_PW = "bbs2!@#$"
+
+		Set Dbcon = Server.CreateObject("ADODB.Connection")
+		Dbcon.Open "Provider=SQLOLEDB.1;Password=" & DB_PW & ";Persist Security Info=True;User ID=" & DB_ID & ";Initial Catalog=" & DB_NAME & ";Data Source=" & DB_SERVER
+
+		Application.Lock
+		
+		'접속자통계
+		Set Rs = Server.Createobject("ADODB.Recordset")
+		Sql = "SELECT COUNT(*) FROM tbl_counter WHERE c_year='" & Year(Date) & "' AND c_month='" & Month(Date) & "' AND c_day='" & Day(Date) & "' " 
+		Rs.Open Sql, Dbcon, 1
+
+		If Rs(0)>0 Then
+			Sql  = "UPDATE tbl_counter SET c_count=c_count+1 "
+			Sql = Sql & " WHERE c_year='" & Year(Date) & "' AND c_month='" & Month(Date) & "' AND c_day='" & Day(Date) & "' " 
+		Else
+			Sql  = "INSERT INTO tbl_counter ("
+			Sql = Sql & "c_year, "
+			Sql = Sql & "c_month, "
+			Sql = Sql & "c_day, "
+			Sql = Sql & "c_count) VALUES ('"
+			Sql = Sql & Year(Date) & "', '" & Month(Date) & "', '" & Day(Date) & "', '1')"
+		End If
+		Dbcon.Execute Sql
+
+		Rs.Close
+		Set Rs = Nothing
+
+		'세부통계정보
+		cl_ip = Request.ServerVariables("REMOTE_HOST")
+		cl_site = Trim(gSite(Request.ServerVariables("HTTP_REFERER")))
+		If InStr(cl_site, Request.ServerVariables("SERVER_NAME")) Then cl_site=""
+		cl_keyword = gsearch(Request.ServerVariables("HTTP_REFERER"))
+		cl_keyword = Trim(cl_keyword)
+		'cl_keyword = Trim(URLDecode(cl_keyword))
+		cl_useragent = Trim(Request.ServerVariables("HTTP_USER_AGENT"))
+		cl_sessionid = Session.SessionID
+
+		Sql  = "INSERT INTO tbl_counter_log("
+		Sql = Sql & "cl_ip, "
+		Sql = Sql & "cl_site, "
+		Sql = Sql & "cl_useragent, "
+		Sql = Sql & "cl_keyword, "
+		Sql = Sql & "cl_sessionid) VALUES("
+		Sql = Sql & "N'" & cl_ip & "', "
+		Sql = Sql & "N'" & cl_site & "', "
+		Sql = Sql & "N'" & cl_useragent & "', "
+		Sql = Sql & "N'" & cl_keyword & "', "
+		Sql = Sql & "N'" & cl_sessionid & "')"
+		'사용시 아래 주석 해제할 것
+		'Dbcon.Execute Sql
+
+		Application.Unlock
+
+		Dbcon.Close
+		Set Dbcon = Nothing
+
+	End If
+	
+End Sub
+
+Sub Session_OnEnd
+End Sub 
+
+Sub Application_OnEnd
+End Sub
+
+' 바로전 페이지의 사이트 주소를 가져옴.
+Function gSite(referer)
+  if referer = "" Then Exit Function
+  gSite = Left(referer,Instr(8,referer, "/")-1)
+End Function 
+
+' 검색어가 있다면 검색어를 가져옴
+Function gSearch(referer)
+	Dim gTemp, UNum
+	if referer = "" then Exit function
+	gTemp = mid(referer,InStrRev(referer, "?",-1,1)+1)
+	gTemp = Split(gTemp,"&")
+
+	For UNum = 0 to Ubound(gtemp)
+		If Len(gTemp(Unum)) > 12 then
+			If inStr(gTemp(UNum),"q=") > 0 then
+				gSearch = Replace(gTemp(UNum),"q=","")
+				Exit For
+			ElseIf inStr(gTemp(UNum),"query=") > 0 then
+				gSearch = Replace(gTemp(UNum),"query=","")
+				Exit For
+			ElseIf inStr(gTemp(UNum),"p=") > 0 then
+				gSearch = Replace(gTemp(UNum),"p=","")
+				Exit For
+			ElseIf inStr(gTemp(UNum),"keyword=") > 0 then
+				gSearch = Replace(gTemp(UNum),"keyword=","")
+				Exit For
+			ElseIf inStr(gTemp(UNum),"search=") > 0 then
+				gSearch = Replace(gTemp(UNum),"search=","")
+				Exit For
+			End if
+		End if
+	Next
+End Function
+
+Function URLDecode(Expression)
+	Dim strSource, strTemp, strResult, strchr
+	Dim lngPos, AddNum, IFKor
+	strSource = Replace(Expression, "+", " ")
+	For lngPos = 1 To Len(strSource)
+		AddNum = 2
+		strTemp = Mid(strSource, lngPos, 1)
+		If strTemp = "%" Then
+			If lngPos + AddNum < Len(strSource) + 1 Then
+				strchr = CInt("&H" & Mid(strSource, lngPos + 1, AddNum))
+				If strchr > 130 Then
+					AddNum = 5
+					IFKor = Mid(strSource, lngPos + 1, AddNum)
+					IFKor = Replace(IFKor, "%", "")
+					strchr = CInt("&H" & IFKor )
+				End If
+				strResult = strResult & Chr(strchr)
+				lngPos = lngPos + AddNum
+			End If
+		Else
+			strResult = strResult & strTemp
+		End If
+	Next
+	URLDecode = strResult
+End Function
+</script>

@@ -1,0 +1,31 @@
+@media (max-height: 800px) and (orientation: landscape) {
+  body .ratio125 #mainContents > section {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+
+@media (max-width: 1720px) {
+  .inner1720 {
+    @include innerPadding();
+  }
+}
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 767px) {
+  html,
+  body,
+  table,
+  input,
+  textarea {
+    font-size: 56.25%;
+  }
+}
+
+@media (max-width: 640px) {
+}
+
+@media (max-width: 480px) {
+}

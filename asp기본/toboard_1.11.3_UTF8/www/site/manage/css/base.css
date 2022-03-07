@@ -1,0 +1,51 @@
+@charset "utf-8";
+/* 20131206 webmoa.co.kr WebPublisher_WONJUN PARK */
+
+/*기본태그 정의*/
+html, body {padding:0;margin:0;}
+/*body, td, th, select, textarea, input, a, address, span, em{font-size:12px;font-family:'돋움','Dotum', 'verdana';color:#666;}*/
+body, td, th, select, textarea, input, a, address, span, em{font-family:'Nanum Gothic', 'verdana';color:#666;}
+
+/* 마진과 패딩의 초기화 */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, th, td {margin:0;padding:0;}
+
+/* 헤더 폰트 사이즈 초기화 */
+h1, h2, h3, h4, h5, h6 {font-size:100%;font-weight:normal;}
+
+/* 리스트의 스타일 제거 */
+ol, ul {list-style:none;}
+
+/* 테이블 스타일 초기화 */
+
+table {border-collapse:collapse;border-spacing:0;table-layout:fixed;width:100%;}
+
+table {border:0;width:100%;}
+th, td{word-break:break-all}
+td.title { width:100%; white-space:normal; }
+
+/* 이미지 및 필드셋에서 보더 표시 초기화 */
+fieldset, img {border:0;}
+img{vertical-align:middle;}
+
+/* 캡션 텍스트 정렬 초기화 */
+caption {text-align:left;}
+
+/* 폼태그의 초기화 */
+select {font-size:12px;font-family:'돋움','Dotum', 'verdana';vertical-align:middle;color:#666666;}
+input {font-size:12px;font-family:'돋움','Dotum', 'verdana';vertical-align:middle;color:#666666;}
+textarea {font-size:14px;line-height:160%;color:#666666;}
+input.radio {vertical-align:middle;}
+
+a:link    {color:#666666; text-decoration:none;}
+a:active    {color:#666666; text-decoration:none;}
+a:visited    {color:#666666; text-decoration:none;}
+a:hover    {color:#666666; text-decoration:none;}
+
+/* hidden 처리 */
+hr,caption{width:0;height:0;font-size:0;line-height:0;overflow:hidden;visibility:hidden;}
+.hide{position:absolute;top:-9999px;width:0;height:0;font-size:0;line-height:0;overflow:hidden;visibility:hidden;}
+
+#sknavi{position:absolute;}
+#sknavi li a{position:absolute;top:-200px;}
+#sknavi li a:focus,
+#sknavi li a:active{top:1px;left:0;display:block;width:150px;color:#fff;height:18px;padding:5px 3px 0 3px;margin-left:5px;text-align:center;font-size:100%;font-weight:bold;background:#115aa3;text-decoration:none;}

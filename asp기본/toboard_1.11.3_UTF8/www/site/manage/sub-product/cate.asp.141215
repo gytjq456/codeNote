@@ -1,0 +1,201 @@
+<%@CodePage = 65001%>
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+<!-- #include virtual="/site/manage/inc/head.asp" -->
+</head>
+
+<!-- header -->
+<!-- #include virtual="/site/manage/inc/header.asp" -->
+
+<!-- location -->
+<div class="location">
+	<p>카테고리 관리</p>
+	<ul>
+		<li>Home <span>&gt;</span></li>
+		<li>카테고리 관리</li>
+	</ul>
+</div>
+<!-- //location -->
+
+<!-- contents --><!-- ---------------------------------------------------------------------------------------------- -->
+<div class="contents">
+
+
+	<!-- tb_list -->
+	<div class="tb_list">
+		<table>
+			<colgroup>
+				<col width="120px" />
+				<col width="" />
+				<col width="120px" />
+				<col width="170px" />
+			</colgroup>
+			<tr>
+				<th class="bdr">코드</th>
+				<th class="bdr">카테고리명</th>
+				<th class="bdr">진열레벨</th>
+				<th>관리</th>
+			</tr>			
+<%
+'대분류
+Set Rs1 = Server.Createobject("ADODB.Recordset")
+Sql = "SELECT * FROM tbl_cate WHERE c_depth='1' ORDER BY c_lev ASC"
+Rs1.Open Sql, Dbcon, 1
+num1=1
+
+If Rs1.EOf=False Then
+c1_rmax = Rs1.RecordCount
+Do Until Rs1.EOF
+	c1_code = Rs1("c_code")
+	c1_name = Rs1("c_name")
+	c1_lev = Rs1("c_lev")
+	%>
+		<tr style="background-color:#faf2f2">
+			<td class="bdr bdt tit"><%=c1_code%></td>
+			<td class="bdr bdt tit"><img src="/site/api/axisj/_AXJ/ui/Bulldog/img/contextSubMenuIcon.png" /> <%=c1_name%></td>
+			<td class="bdr bdt">
+			<!--input type="text" name="c_lev" class="AXInput W30" value="<%=c1_lev%>">
+			<input type="button" value="수정" class="AXButtonSmall" style="background:#7b88cb; color:#fff; border:1px solid #7b88cb" -->
+			<%If num1>1 Then%>
+			<input type="button" value="▲" class="AXButtonSmall" style="background:#7bcb88; color:#fff; border:1px solid #7bcb88" onclick="location.href='cate-ok.asp?mode=up&code=<%=c1_code%>&lev=<%=c1_lev%>'">
+			<%End If%>
+			<%If num1<c1_rmax Then%>
+			<input type="button" value="▼" class="AXButtonSmall" style="background:#7bcb88; color:#fff; border:1px solid #7bcb88" onclick="location.href='cate-ok.asp?mode=down&code=<%=c1_code%>&lev=<%=c1_lev%>'">
+			<%End If%></td>
+			<td class="bdt">
+			<input type="button" value="하위추가" class="AXButtonSmall" style="background:#95a1ba; color:#fff; border:1px solid #95a1ba" onclick="fnObj.modalOpenDiv('reg', '<%=c1_code%>', '2', '');">
+			<input type="button" value=" 수정 " class="AXButtonSmall" style="background:#cb7b9b; color:#fff; border:1px solid #cb7b9b" onclick="fnObj.modalOpenDiv('mod', '<%=c1_code%>', '1', '<%=c1_name%>');">
+			<input type="button" value=" 삭제 " class="AXButtonSmall" style="background:#cbac7b; color:#fff; border:1px solid #cbac7b" onclick="if(confirm('하위 카테고리도 함께 삭제됩니다. 삭제 하시겠습니까?')){location.href='cate-ok.asp?mode=del&code=<%=c1_code%>'}"></td>
+		</tr>
+	<%
+	'중분류
+	Set Rs2 = Server.Createobject("ADODB.Recordset")
+	Sql = "SELECT * FROM tbl_cate WHERE c_depth='2' AND c_code LIKE '" & c1_code & ".%' ORDER BY c_lev ASC"
+	Rs2.Open Sql, Dbcon, 1
+	If Rs2.EOf=False Then c2_rmax = Rs2.RecordCount
+	num2=1
+	Do Until Rs2.EOF
+		c2_code = Rs2("c_code")
+		c2_name = Rs2("c_name")
+		c2_lev = Rs2("c_lev")
+		%>
+			<tr style="background-color:#f8f8fa">
+				<td class="bdr bdt tit"><%=c2_code%></td>
+				<td class="bdr bdt tit" style="padding-left:35px"><img src="/site/api/axisj/_AXJ/ui/Bulldog/img/contextSubMenuIcon.png" /><%=c2_name%></td>
+				<td class="bdr bdt">
+				<%If num2>1 Then%>
+				<input type="button" value="▲" class="AXButtonSmall" style="background:#7b88cb; color:#fff; border:1px solid #7b88cb" onclick="location.href='cate-ok.asp?mode=up&code=<%=c2_code%>&lev=<%=c2_lev%>'">
+				<%End If%>
+				<%If num2<c2_rmax Then%>
+				<input type="button" value="▼" class="AXButtonSmall" style="background:#7b88cb; color:#fff; border:1px solid #7b88cb" onclick="location.href='cate-ok.asp?mode=down&code=<%=c2_code%>&lev=<%=c2_lev%>'">
+				<%End If%>
+				</td>
+				<td class="bdt">
+				<input type="submit" value="하위추가" class="AXButtonSmall" style="background:#95a1ba; color:#fff; border:1px solid #95a1ba" onclick="fnObj.modalOpenDiv('reg', '<%=c2_code%>', '3', '');">
+				<input type="button" value=" 수정 " class="AXButtonSmall" style="background:#cb7b9b; color:#fff; border:1px solid #cb7b9b" onclick="fnObj.modalOpenDiv('mod', '<%=c2_code%>', '2', '<%=c2_name%>');">
+				<input type="button" value=" 삭제 " class="AXButtonSmall" style="background:#cbac7b; color:#fff; border:1px solid #cbac7b" onclick="if(confirm('하위 카테고리도 함께 삭제됩니다. 삭제 하시겠습니까?')){location.href='cate-ok.asp?mode=del&code=<%=c2_code%>'}"></td>
+			</tr>
+		<%
+		'소분류
+		Set Rs3 = Server.Createobject("ADODB.Recordset")
+		Sql = "SELECT * FROM tbl_cate WHERE c_depth='3' AND c_code LIKE '" & c2_code & ".%' ORDER BY c_lev ASC"
+		Rs3.Open Sql, Dbcon, 1
+		If Rs3.EOf=False Then c3_rmax = Rs3.RecordCount
+		num3=1
+		Do Until Rs3.EOF
+			c3_code = Rs3("c_code")
+			c3_name = Rs3("c_name")
+			c3_lev = Rs3("c_lev")
+			%>
+			<tr>
+				<td class="bdr bdt tit"><%=c3_code%></td>
+				<td class="bdr bdt tit" style="padding-left:70px"><img src="/site/api/axisj/_AXJ/ui/Bulldog/img/contextSubMenuIcon.png" /><%=c3_name%></td>
+				<td class="bdr bdt">
+				<%If num3>1 Then%>
+				<input type="button" value="▲" class="AXButtonSmall" style="background:#cb7b88; color:#fff; border:1px solid #cb7b88" onclick="location.href='cate-ok.asp?mode=up&code=<%=c3_code%>&lev=<%=c3_lev%>'">
+				<%End If%>
+				<%If num3<c3_rmax Then%>
+				<input type="button" value="▼" class="AXButtonSmall" style="background:#cb7b88; color:#fff; border:1px solid #cb7b88" onclick="location.href='cate-ok.asp?mode=down&code=<%=c3_code%>&lev=<%=c3_lev%>'">
+				<%End If%></td>
+				<td class="bdt">
+				<input type="button" value=" 수정 " class="AXButtonSmall" style="background:#cb7b9b; color:#fff; border:1px solid #cb7b9b" onclick="fnObj.modalOpenDiv('mod', '<%=c3_code%>', '3', '<%=c3_name%>');">
+				<input type="button" value=" 삭제 " class="AXButtonSmall" style="background:#cbac7b; color:#fff; border:1px solid #cbac7b" onclick="if(confirm('삭제 하시겠습니까?')){location.href='cate-ok.asp?mode=del&code=<%=c3_code%>'}"></td>
+			</tr>
+			<%
+			num3=num3+1
+			Rs3.Movenext
+		Loop
+		Set Rs3 = Nothing
+		num2=num2+1
+		Rs2.Movenext
+	Loop
+	Set Rs2 = Nothing
+	num1=num1+1
+	Rs1.Movenext
+Loop
+Else
+%>
+			<tr>
+				<td class="bdt" colspan="4">등록된 카테고리가 없습니다. 대분류를 먼저 등록하세요.</td>
+			</tr>
+<%
+End If
+%>
+		</table>
+	</div>
+	<!-- tb_list -->
+
+	<!-- btn_left_right -->
+	<div class="btn_left_right">
+		<p class="right">
+			<span><input type="button" value="  대분류추가  " class="AXButton Blue" onclick="fnObj.modalOpenDiv('reg', '', '1', '');"></span>
+		</p>
+	</div>
+	<!-- //btn_left_right -->	
+
+	<div style="display:none;">
+		<div id="modalContent" style="padding:20px;">
+		<form name="regform" method="post" action="cate-ok.asp" onsubmit="return RegChk(this)">
+			<input type="hidden" name="mode" id="mode" />
+			<input type="hidden" name="code" id="code" />
+			<input type="hidden" name="depth" id="depth" />
+			· 카테고리명 : <input type="text" name="c_name" id="c_name" size="25" value="" placeholder="카테고리명을 입력하세요" class="AXInput" /><br />
+			<br/>
+			<div style="width:100%; text-align:center">
+				<input type="submit" value="확인" class="AXButton Blue" />
+				<input type="button" value="창닫기" class="AXButton" onclick="myModal.close('modalDiv01');" />
+			</div>
+		</div>
+	</div>
+
+<script type="text/javascript">
+var myModal = new AXModal();
+var fnObj = {
+	modalOpenDiv: function(mode, code, depth, name){
+		myModal.openDiv({
+			modalID:"modalDiv01",
+			targetID:"modalContent",
+			width:300
+		});
+		var divTop = event.clientY + document.body.scrollTop;
+		$(".AXModalBox").css({ 
+			"top": divTop-50
+		}).show();
+		$("#mode").val(mode);
+		$("#code").val(code);
+		$("#depth").val(depth);
+		$("#c_name").val(name);
+	}
+};
+</script>
+
+<script type="text/javascript">
+function RegChk(obj){
+	if(obj.c_name.value==""){ alert('카테고리명을 입력하세요'); obj.c_name.focus(); return false; }
+}
+</script>
+
+</div>
+<!-- //contents --><!-- ---------------------------------------------------------------------------------------------- -->
+<!-- #include virtual="/site/manage/inc/footer.asp" -->

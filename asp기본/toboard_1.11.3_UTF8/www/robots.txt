@@ -1,0 +1,235 @@
+User-agent: MJ12bot
+User-agent: MJ12bot/v1.4.5
+User-agent: ZoominfoBot
+User-agent: SemrushBot
+User-agent: SemrushBot-SA
+User-agent: DomainCrawler
+User-agent: MegaIndex.ru
+User-agent: AlphaBot
+User-agent: ltx71
+User-agent: CCBot
+User-agent: Sogou
+User-agent: DotBot
+User-agent: PiplBot
+User-agent: AhrefsBot
+User-agent: MauiBot
+User-agent: ezooms
+User-agent: sistrix
+User-agent: Yandex
+User-agent: Aboundex
+User-agent: 80legs
+User-agent: 360Spider
+User-agent: Java
+User-agent: Cogentbot
+User-agent: Alexibot
+User-agent: asterias
+User-agent: attach
+User-agent: BackDoorBot
+User-agent: BackWeb
+User-agent: Bandit
+User-agent: BatchFTP
+User-agent: Bigfoot
+User-agent: Black.Hole
+User-agent: BlackWidow
+User-agent: BlowFish
+User-agent: BotALot
+User-agent: Buddy
+User-agent: BuiltBotTough
+User-agent: Bullseye
+User-agent: BunnySlippers
+User-agent: Cegbfeieh
+User-agent: CheeseBot
+User-agent: CherryPicker
+User-agent: ChinaClaw
+User-agent: Collector
+User-agent: Copier
+User-agent: CopyRightCheck
+User-agent: cosmos
+User-agent: Crescent
+User-agent: Custo
+User-agent: AIBOT
+User-agent: DISCo
+User-agent: DIIbot
+User-agent: DittoSpyder
+User-agent: Download\ Demon
+User-agent: Download\ Devil
+User-agent: Download\ Wonder
+User-agent: dragonfly
+User-agent: Drip
+User-agent: eCatch
+User-agent: EasyDL
+User-agent: ebingbong
+User-agent: EirGrabber
+User-agent: EmailCollector
+User-agent: EmailSiphon
+User-agent: EmailWolf
+User-agent: EroCrawler
+User-agent: Exabot
+User-agent: Express\ WebPictures
+User-agent: Extractor
+User-agent: EyeNetIE
+User-agent: Foobot
+User-agent: flunky
+User-agent: FrontPage
+User-agent: Go-Ahead-Got-It
+User-agent: gotit
+User-agent: GrabNet
+User-agent: Grafula
+User-agent: Harvest
+User-agent: hloader
+User-agent: HMView
+User-agent: HTTrack
+User-agent: humanlinks
+User-agent: IlseBot
+User-agent: Image\ Stripper
+User-agent: Image\ Sucker
+User-agent: Indy\ Library
+User-agent: InfoNaviRobot
+User-agent: InfoTekies
+User-agent: Intelliseek
+User-agent: InterGET
+User-agent: Internet\ Ninja
+User-agent: Iria
+User-agent: Jakarta
+User-agent: JennyBot
+User-agent: JetCar
+User-agent: JOC
+User-agent: JustView
+User-agent: Jyxobot
+User-agent: Kenjin.Spider
+User-agent: Keyword.Density
+User-agent: larbin
+User-agent: LexiBot
+User-agent: lftp
+User-agent: libWeb/clsHTTP
+User-agent: likse
+User-agent: LinkextractorPro
+User-agent: LinkScan/8.1a.Unix
+User-agent: LNSpiderguy
+User-agent: LinkWalker
+User-agent: lwp-trivial
+User-agent: LWP::Simple
+User-agent: Magnet
+User-agent: Mag-Net
+User-agent: MarkWatch
+User-agent: Mass\ Downloader
+User-agent: Mata.Hari
+User-agent: Memo
+User-agent: Microsoft.URL
+User-agent: Microsoft\ URL\ Control
+User-agent: MIDown\ tool
+User-agent: MIIxpc
+User-agent: Mirror
+User-agent: Missigua\ Locator
+User-agent: Mister\ PiX
+User-agent: moget
+User-agent: Mozilla/3.Mozilla/2.01
+User-agent: Mozilla.*NEWT
+User-agent: NAMEPROTECT
+User-agent: Navroad
+User-agent: NearSite
+User-agent: NetAnts
+User-agent: Netcraft
+User-agent: NetMechanic
+User-agent: NetSpider
+User-agent: Net\ Vampire
+User-agent: NetZIP
+User-agent: NextGenSearchBot
+User-agent: NG
+User-agent: NICErsPRO
+User-agent: niki-bot
+User-agent: NimbleCrawler
+User-agent: Ninja
+User-agent: NPbot
+User-agent: Octopus
+User-agent: Offline\ Explorer
+User-agent: Offline\ Navigator
+User-agent: Openfind
+User-agent: OutfoxBot
+User-agent: PageGrabber
+User-agent: Papa\ Foto
+User-agent: pavuk
+User-agent: pcBrowser
+User-agent: PHP\ version\ tracker
+User-agent: Pockey
+User-agent: ProPowerBot/2.14
+User-agent: ProWebWalker
+User-agent: psbot
+User-agent: Pump
+User-agent: QueryN.Metasearch
+User-agent: RealDownload
+User-agent: Reaper
+User-agent: Recorder
+User-agent: ReGet
+User-agent: RepoMonkey
+User-agent: RMA
+User-agent: Siphon
+User-agent: SiteSnagger
+User-agent: SlySearch
+User-agent: SmartDownload
+User-agent: Snake
+User-agent: Snapbot
+User-agent: Snoopy
+User-agent: sogou
+User-agent: SpaceBison
+User-agent: SpankBot
+User-agent: spanner
+User-agent: Sqworm
+User-agent: Stripper
+User-agent: Sucker
+User-agent: SuperBot
+User-agent: SuperHTTP
+User-agent: Surfbot
+User-agent: suzuran
+User-agent: Szukacz/1.4
+User-agent: tAkeOut
+User-agent: Teleport
+User-agent: Telesoft
+User-agent: TurnitinBot/1.5
+User-agent: The.Intraformant
+User-agent: TheNomad
+User-agent: TightTwatBot
+User-agent: Titan
+User-agent: True_Robot
+User-agent: turingos
+User-agent: TurnitinBot
+User-agent: URLy.Warning
+User-agent: Vacuum
+User-agent: VCI
+User-agent: VoidEYE
+User-agent: Web\ Image\ Collector
+User-agent: Web\ Sucker
+User-agent: WebAuto
+User-agent: WebBandit
+User-agent: Webclipping.com
+User-agent: WebCopier
+User-agent: WebEMailExtrac.*
+User-agent: WebEnhancer
+User-agent: WebFetch
+User-agent: WebGo\ IS
+User-agent: Web.Image.Collector
+User-agent: WebLeacher
+User-agent: WebmasterWorldForumBot
+User-agent: WebReaper
+User-agent: WebSauger
+User-agent: Website\ eXtractor
+User-agent: Website\ Quester
+User-agent: Webster
+User-agent: WebStripper
+User-agent: WebWhacker
+User-agent: WebZIP
+User-agent: Whacker
+User-agent: Widow
+User-agent: WISENutbot
+User-agent: WWWOFFLE
+User-agent: WWW-Collector-E
+User-agent: Xaldon
+User-agent: Xenu
+User-agent: Zeus
+User-agent: ZmEu
+User-agent: Zyborg
+Disallow: /
+
+User-agent: *
+Disallow: /site/
+Disallow: /upload/

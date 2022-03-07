@@ -1,0 +1,15 @@
+/* main_layout */
+#wrap {position:relative; width:100%; z-index:0; background-color:#f5f5f5; overflow:hidden; padding-top:113px;}
+#login_container {position:relative; width:100%; background-color:#fff; border-bottom:1px solid #d5d5d5; border-top:1px solid #d5d5d5; height:309px; margin-top:200px; margin-bottom:290px;}
+#login_container_in {position:relative; width:880px; height:309px; margin:0 auto; background:url('/site/manage/images/bg/bg_login.gif') 376px 0 no-repeat;}
+
+
+/*로그인*/
+#login_container_in .login_title {position:absolute; top:81px; left:114px;}
+#login_container_in .login_box {position:absolute; width:348px; top:49px; right:107px;}
+#login_container_in .login_box .txt {text-align:right; margin-bottom:19px; height:14px;}
+#login_container_in dt {width:72px; float:left; text-align:right; color:#979797; font-family:Verdana; font-size:13px; font-weight:bold; height:20px; padding:10px 8px 10px 0; margin-bottom:6px;}
+#login_container_in dd {width:266px; float:left; margin-bottom:6px; height:40px; text-align:left;}
+#login_container_in .login_input {border:3px solid #4d90fe; /* height:14px; */ width:266px; padding:10px; color:#888; float:left; height:40px; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;}
+#login_container_in .remember {font-size:12px; display:block; float:left; margin-bottom:23px; margin-left:80px; height:20px;}
+#login_container_in .login_btn {margin-left:80px;}

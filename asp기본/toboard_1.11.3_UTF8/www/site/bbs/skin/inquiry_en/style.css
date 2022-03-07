@@ -1,0 +1,82 @@
+/* 일반게시판 리스트 */
+.ntb-tb {border-top:2px solid #808080;}
+.ntb-tb caption {visibility:hidden;}
+.ntb-tb th {padding:10px; border-bottom: 1px solid #ddd;  border-right: 1px solid #ddd; text-align:center; font-weight: bold; color:#333; line-height:18px;}
+.ntb-tb td {padding:10px; border-bottom:1px solid #ddd; text-align:center; vertical-align:middle; line-height:18px; word-break:break-all;}
+.ntb-tb .left {text-align:left; padding-left:10px;}
+.ntb-tb .right {text-align:right; padding-left:10px;}
+.ntb-tb .r_none {border-right:none;}
+.ntb-tb .font_category {font-weight:bold; color:#0080d3; font-size: 11px;}
+.ntb-tb .font_comment {font-weight: bold; font-size: 11px; color: #ee2ea9;}
+.ntb-tb .font_search {font-weight:bold; color:#CC3300}
+
+/* 온라인 문의 */
+.inquiry_com{}
+.inquiry_com .con_wrap{}
+.inquiry_com .con_wrap .tit{ border-bottom:1px solid #0068b7; margin-bottom:20px;}
+.inquiry_com .con_wrap .tit p{ font-size:35px; color: #0068b7; font-family:'Exo'; letter-spacing:-0.03em; font-weight:700; padding-bottom:17px; text-transform:uppercase;}
+.inquiry_com .con_wrap .formBox{}
+.inquiry_com .con_wrap .formBox section{}
+.inquiry_com .con_wrap .formBox section:nth-of-type(n+2){ margin-top:38px;}
+.inquiry_com .con_wrap .formBox section .box{}
+.inquiry_com .con_wrap .formBox section .box:after{ display: block; content:''; clear:both;}
+.inquiry_com .con_wrap .formBox section.section1 .box .type{ font-size:0; border-bottom:1px solid #e0e0e0; padding: 28px 0 8px 0;}
+.inquiry_com .con_wrap .formBox section.section1 .box:nth-of-type(n+2) .type{ float: left; width: 47.85714285714%; margin-right:4.28571428571%; box-sizing:border-box;}
+.inquiry_com .con_wrap .formBox section.section1 .box:nth-of-type(n+2) .type:nth-of-type(2){ margin-right:0;}
+.inquiry_com .con_wrap .formBox section.section1 .box .w_max {width:100% !important}
+.inquiry_com .con_wrap .formBox section.section1 .box .type > *{ display: inline-block; vertical-align:middle; box-sizing:border-box;}
+.inquiry_com .con_wrap .formBox section .box .type .type_tit{ font-size:18px; color: #333; box-sizing:border-box; padding-left:8px;} 
+.inquiry_com .con_wrap .formBox section.section1 .box .type .type_tit{ width: 100px; }  
+.inquiry_com .con_wrap .formBox section:nth-of-type(n+2) .box .type .type_tit{ margin-bottom:17px;}    
+.inquiry_com .con_wrap .formBox section .box .type .type_tit em{ color: #0068b7;} 
+.inquiry_com .con_wrap .formBox section.section1 .box .type input{ width: calc(100% - 100px); padding-left:10px; height: 38px; border:none;}
+.inquiry_com .con_wrap .formBox section .box .type input::placeholder,
+.inquiry_com .con_wrap .formBox section.section2 .box .type textarea::placeholder,
+.inquiry_com .con_wrap .formBox section.section4 .box2 input[type='text']{ color: rgba(51,51,51,0.4);}
+.inquiry_com .con_wrap .formBox section.section2 .box .type{}
+.inquiry_com .con_wrap .formBox section .box .type textarea{ width: 100%; resize:none; border:1px solid #e0e0e0; box-sizing:border-box;  padding: 24px;}
+.inquiry_com .con_wrap .formBox section.section2 .box .type textarea{ resize:vertical; height: 250px;}
+.inquiry_com .con_wrap .formBox section.section3 .box .type textarea{ height: 160px; color: rgba(51,51,51,0.4); font-size:14px; line-height:1.7;}
+.inquiry_com .con_wrap .formBox section.section3 .box .type .checkBox{ padding: 10px 24px;}
+.inquiry_com .con_wrap .formBox section.section3 .box .type .checkBox label{ font-size:14px; color: #666; font-weight:300; cursor:pointer;}
+.inquiry_com .con_wrap .formBox section.section3 .box .type .checkBox label em{ color: #0068b7;}
+.inquiry_com .con_wrap .formBox section.section4:after{ display: block; content:''; clear:both;}
+.inquiry_com .con_wrap .formBox section.section4 > *{ position: relative; float: left; width: 47.85714285714%; margin-right:4.28571428571%; box-sizing:border-box; border-bottom:1px solid #e0e0e0; padding: 28px 0 8px 0;}
+.inquiry_com .con_wrap .formBox section.section4 .box:nth-of-type(n+2) .type:nth-of-type(2){ margin-right:0;}
+.inquiry_com .con_wrap .formBox section.section4 .box .type > *{ display: inline-block; vertical-align:middle; }
+.inquiry_com .con_wrap .formBox section.section4 .box .type .type_tit{ margin-bottom:0;}
+.inquiry_com .con_wrap .formBox section.section4 .box .type{ font-size:0;}
+.inquiry_com .con_wrap .formBox section.section4 .box1 .type .type_tit{ width: 100px;}
+.inquiry_com .con_wrap .formBox section.section4 .box2 .type .type_tit{ width: 147px;}
+.inquiry_com .con_wrap .formBox section.section4 .box .type .content > *{ display: inline-block; vertical-align:middle;}
+.inquiry_com .con_wrap .formBox section.section4 .box1 .type .content{ width: calc(100% - 104px);}
+.inquiry_com .con_wrap .formBox section.section4 .box2 .type .content{ width: calc(100% - 147px);}
+.inquiry_com .con_wrap .formBox section.section4 .box1 .type .content input[type="text"]{ height: 38px; box-sizing:border-box; border:none; width: calc(100% - 80px); background-color: #fff;}
+.inquiry_com .con_wrap .formBox section.section4 .box1 input[type='file']{ /* 파일 필드 숨기기 */ position: absolute !important; width: 0px; height: 0px; padding: 0; margin: -1px; overflow: hidden; clip:rect(0,0,0,0); border: 0; }
+.inquiry_com .con_wrap .formBox section.section4 .box1 label{ display: inline-block; width: 80px; background-color: #0068b7; color: rgba(255,255,255,0.8); text-align:center; padding: 10px 0; border-radius:2px; cursor:pointer; font-size:14px;}
+
+.inquiry_com .con_wrap .formBox section.section4 .box2{ margin-right:0;}
+.inquiry_com .con_wrap .formBox section.section4 .box2 button{ width: 80px; background-color: #0068b7; color: rgba(255,255,255,0.8); text-align:center; padding: 7px 0; border-radius:2px; cursor:pointer; border:none; margin: 0 10px; font-size:14px;}
+.inquiry_com .con_wrap .formBox section.section4 .box2 input[type='text']{ width: calc(100% - 230px); height: 35px; border:1px solid #e0e0e0; box-sizing:border-box; padding-left:10px;}
+
+.btn_com input[type=submit]{ position: relative; display: block; font-size:18px; color: #fff; font-family:'Exo'; background-color: #0068b7; width: 232px; padding: 20px 0; text-align:center; margin: 60px auto 0; text-transform:uppercase; border: 0;}
+
+
+@media screen and (max-width:1024px){
+	.inquiry_com .con_wrap .formBox section.section4 .box { float: none; width: 100%;}
+}
+
+@media screen and (max-width:768px){
+	.inquiry_com .con_wrap .tit{ margin-bottom:0;}
+	.inquiry_com .con_wrap .tit p{ font-size:28px;}
+	.inquiry_com .con_wrap .formBox section.section1 .box .type{ padding: 10px 0;}
+	.inquiry_com .con_wrap .formBox section.section1 .box:nth-of-type(n+2) .type{ float: none; width: 100%;}
+	.inquiry_com .con_wrap .formBox section .box .type .type_tit{ font-size:15px;}
+	.inquiry_com .con_wrap .formBox section.section1 .box .type .type_tit{ width: 85px;}
+	.inquiry_com .con_wrap .formBox section.section1 .box .type input{ width: calc(100% - 85px);}
+	.inquiry_com .con_wrap .formBox section.section2 .box .type textarea{ height: 150px;}
+	.inquiry_com .con_wrap .formBox section.section4 .box2 .type .type_tit{ width: 105px;}
+	.inquiry_com .con_wrap .formBox section.section4 .box2 .type .content{ width: calc(100% - 105px);}
+	.inquiry_com .con_wrap .formBox section.section4 .box2 button{ width: 60px; font-size:13px;}
+	.inquiry_com .con_wrap .formBox section.section4 .box2 input[type='text']{ width:calc(100% - 185px)}
+}

@@ -1,0 +1,111 @@
+/* 대리점 검색 */
+.store{overflow:hidden;}
+.store .map_area{position:relative;height:340px;float:left;}
+.store .map_area span{position:absolute;}
+.store .map_area span a{font-size:11px;font-family:'dotum';color:#485061;}
+.store .map_area span a:hover{font-weight:bold;text-decoration:underline;}
+.store .map_area span.map01{top:63px;left:118px;}
+.store .map_area span.map02{top:39px;left:68px;}
+.store .map_area span.map03{top:83px;left:102px;}
+.store .map_area span.map04{top:51px;left:161px;}
+.store .map_area span.map05{top:129px;left:130px;}
+.store .map_area span.map06{top:131px;left:88px;}
+.store .map_area span.map07{top:101px;left:138px;}
+.store .map_area span.map08{top:106px;left:28px;}
+.store .map_area span.map09{top:154px;left:191px;}
+.store .map_area span.map10{top:124px;left:177px;}
+.store .map_area span.map11{top:174px;left:226px;}
+.store .map_area span.map12{top:211px;left:211px;}
+.store .map_area span.map13{top:197px;left:141px;}
+.store .map_area span.map14{top:174px;left:68px;}
+.store .map_area span.map15{top:234px;left:77px;}
+.store .map_area span.map16{top:211px;left:104px;}
+.store .map_area span.map17{top:281px;left:83px;}
+
+.store .search_area{min-width:197px; width:60%; box-sizing:border-box; height:317px;float:right;border:1px solid #e3e3e3; padding:100px 25px 0; position:relative; background:url("/site/bbs/skin/agent_map/images/bg_search_area.gif") repeat;}
+.store .search_area span.tit{background:#1b4381;font-size:14px;font-weight:700;color:#fff;display:inline-block;padding:10px 15px;position:absolute;left:0;top:0;}
+.store .search_area ul { margin-bottom:20px; }
+.store .search_area ul li{padding-bottom:7px;}
+.store .search_area ul li span{display:inline-block;width:60px;text-align:right;padding-right:10px;font-size:14px;font-weight:700;color:#1b4381;}
+.store .search_area ul li input[type='text'] { width:150px; }
+.store .search_area p.txt{color:#3c3f45;font-weight:700;background:url("/site/bbs/skin/agent_map/images/bg_txt.gif") no-repeat 0 4px;padding-left:15px; text-align:left; margin-bottom:10px;}
+
+
+/* 일반게시판 리스트 */
+.ntb-tb {border-top:1px solid #ddd;}
+.ntb-tb caption {visibility:hidden;}
+.ntb-tb th {padding:15px; border-bottom: 1px solid #ddd;  border-right: 1px solid #ddd; text-align:center; font-weight: bold; color:#333; line-height:18px;}
+.ntb-tb td {padding:15px; border-bottom:1px solid #ddd; text-align:center; vertical-align:middle; line-height:18px; word-break:break-all;}
+.ntb-tb .left {text-align:left; padding-left:10px;}
+.ntb-tb .right {text-align:right; padding-left:10px;}
+.ntb-tb .r_none {border-right:none;}
+.ntb-tb .font_category {font-weight:bold; color:#0080d3; font-size: 11px;}
+.ntb-tb .font_comment {font-weight: bold; font-size: 11px; color: #ee2ea9;}
+.ntb-tb .font_search {font-weight:bold; color:#CC3300}
+
+.ntb-tb th:first-child, .ntb-tb th:first-child+th { width:9%; }
+.ntb-tb th:first-child+th+th { width:18%; }
+.ntb-tb th:first-child+th+th+th+th { width:16%; }
+.ntb-tb th:first-child+th+th+th+th+th { width:15%; }
+
+
+
+@media screen and (max-width:830px) {
+	.store .search_area{ width:50%; }
+}
+@media screen and (max-width:730px) {
+	.store .map_area{float:none; width:300px; margin:0 auto; }
+	.store .search_area { float:none; width:100%; margin:0 auto; height:auto; padding:50px 0 20px; }
+	.store .search_area ul li span{width:50px;text-align:left;padding-right:0;}
+	.store .search_area ul li input[type='text'] { width:50%; max-width:150px; }
+	.store .search_area p.txt{ width:90%; margin:0 auto 10px; }
+	.ntb-tb th:nth-child(1), .ntb-tb th:nth-child(4), .ntb-tb th:nth-child(6), .ntb-tb td:nth-child(1), .ntb-tb td:nth-child(4), .ntb-tb td:nth-child(6) { display:none; } 
+	
+	.ntb-tb th:first-child, .ntb-tb th:first-child+th { width:20%; }
+	.ntb-tb th:first-child+th+th { width:30%; }
+	.ntb-tb th:first-child+th+th+th+th { width:30%; }
+
+
+	
+}
+
+/* view */
+.view{border:1px solid #c8c8c8;padding:30px;margin-bottom:20px;}
+.view .view_tit{border-bottom:1px solid #c8c8c8;position:relative;}
+.view .view_tit p{font-size:16px;font-weight:700;color:#514f4f;padding-bottom:5px;}
+.view .view_tit p span.bar{font-size:16px;font-weight:700;color:#939393;}
+.view .view_tit p span{font-weight:700;color:#939393;}
+.view .view_tit em{position:absolute;right:0;top:5px;}
+.view .sns{padding-top:15px;padding-bottom:65px;}
+.view .sns ul{text-align:right;}
+.view .sns ul li{display:inline;}
+.view .detail{padding:20px 0;}
+.view .detail p.image{text-align:center;padding-bottom:50px;}
+.view .detail p.txt{white-space:pre-line;border-bottom:1px dashed #e0e0e0;padding-bottom:50px;}
+.view p.btn{padding:0 20px;text-align:right;}
+.view p.btn input.AXButton{background:#526271;color:#fff;}
+
+/* 일반게시판 뷰, 쓰기 */
+.ntb-tb-view {border-top:1px solid #ddd; padding:0; margin-bottom:30px; margin:0 auto}
+.ntb-tb-view caption {visibility:hidden;}
+.ntb-tb-view th {border-bottom: 1px solid #ddd; padding:20px; border-right: 1px solid #ddd; text-align:center; font-weight: bold; color:#222;font-size:15px;}
+.ntb-tb-view th.W25{width:25% !important;}
+.ntb-tb-view th.view_tit{padding:50px 30px;font-size:19px;line-height:28px;}
+.ntb-tb-view td {border-bottom:1px solid #ddd; padding:20px;text-align:center; vertical-align:middle; line-height:22px;font-size:15px;}
+.ntb-tb-view td.cont_txt{padding:20px 20px;}
+.ntb-tb-view .left {text-align:left; padding-left:10px;}
+.ntb-tb-view .right {text-align:right; padding-left:10px;}
+.ntb-tb-view .r_none {border-right:none;}
+.ntb-tb-view .b_none {border-bottom:none;}
+.ntb-tb-view .font_ip {font-size:8pt; color:#aaa;}
+.ntb-tb-view .font_comcnt {color:#d33;}
+.ntb-tb-view .font_comment {font-weight: bold; font-size: 11px; color: #ee2ea9;}
+.ntb-tb-view .content-area {text-align:left; vertical-align:top; padding:10px; word-break:break-all;}
+.ntb-tb-view .content-area > p > img{max-width:851px;text-align:center;}
+.ntb-tb-view .sns-area {width:100%; text-align:right; padding-top:10px}
+.ntb-tb-view .ip-area {width:100%; text-align:right;}
+.ntb-tb-view-btn {position: relative; text-align:left; margin-top:10px; margin-bottom:30px;}
+.ntb-tb-view-btn .btnr {position:absolute; right:0; top:0;}
+.ntb-tb-view-comment {position: relative; margin-top:10px; margin-bottom:30px;}
+.ntb-tb-view-reply {position: relative; margin-top:10px; margin-bottom:30px;}
+.ntb-tb-view-prevnext {position: relative; margin-top:10px; margin-bottom:30px;}
