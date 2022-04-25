@@ -1,30 +1,51 @@
 $(document).ready(function () {
 
 
-	var a = window.innerHeight * .25
-	var wow = $(".combine_ani");
+	let winUnit = 0;
+
+	if ($("#subWrap").length) {
+		winUnit = window.innerHeight * .7
+	} else {
+		winUnit = window.innerHeight * .8
+	}
+	let wow = $(".combine_ani");
 	if (wow.length) {
-		$(window).off("scroll");
-		$(window).on("scroll", function () {
-			var scrPos = $(this).scrollTop() + a;
+		$(window).on("load scroll", function () {
+			let scrPos = $(this).scrollTop();
 			wow.each(function () {
-				var offsetTop = $(this).offset().top - 600;
+				let offsetTop = $(this).offset().top - winUnit;
 				if (scrPos >= offsetTop) {
 					$(this).addClass("animated");
 				} else {
-					$(this).removeClass("animated");
+					if (!$(this).hasClass("start")) {
+						$(this).removeClass("animated");
+					}
 				}
 			})
 		})
 	}
 
 	wow.each(function () {
-		var delay = $(this).data("delay");
+		let delay = $(this).data("delay");
 		$(this).css({
 			"transition-delay": delay
 		})
+
+		if ($(this).hasClass("start")) {
+			$(this).addClass("animated")
+		}
+
 	});
 
+	if ($(".trY").length) {
+		$(".trY").each(function () {
+			$(this).find("li").each(function (index) {
+				$(this).css({
+					"transitionDelay": `${index * 0.2}s`
+				})
+			})
+		})
+	}
 
 
 
